@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<http-response statusCode="201">
+  <annotation name="post success"
+              host="example.com"
+              port="80"
+              scheme="http"
+              uri-path="/users"
+              request-method="POST">This is the description for this mock response.</annotation>
+  <headers>
+    <header name="Content-Length" value="0" />
+    <header name="Location" value="http://www.example.com/users/u70239" />
+  </headers>
+  <cookies />
+  <body />
+</http-response>

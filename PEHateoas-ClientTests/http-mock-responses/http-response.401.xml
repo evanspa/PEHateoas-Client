@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<http-response statusCode="401">
+  <annotation name="not authorized response"
+              host="example.com"
+              port="80"
+              scheme="http"
+              uri-path="/users/xxx9201"
+              request-method="GET">This is the description for this mock response.</annotation>
+  <headers>
+    <header name="WWW-Authenticate" value="FPAuthToken realm=&quot;all&quot;" />
+    <header name="Content-Length" value="0" />
+  </headers>
+  <cookies />
+  <body />
+</http-response>

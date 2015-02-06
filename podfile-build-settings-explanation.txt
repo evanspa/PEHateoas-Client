@@ -1,0 +1,36 @@
+FYI, at the time of this writing, I'm using the latest release build of
+CocoaPods (0.35.0).
+
+The current Podfile is not my ideal.  Ideally, I'd be able to explicitly define
+my test target (PEHateoas-ClientTests), and specify Kiwi and PEWire-Control as
+dependencies to it.  Unfortunately, because the primary target (implicitly
+defined as PEHateoas-Client depends on PEObjc-Commons, and PEWire-Control
+depends on PEObjc-Commons, and because of what looks like a current issue with
+CocoaPods (https://github.com/CocoaPods/CocoaPods/issues/1688), it is not
+possible (for me at least) to do this.  I've tried all sorts of workarounds
+suggested in GitHub issue-threads, and none have worked for me.  I like my
+current Podfile "solution" because it's simple and understandable.
+
+The only con (I can think of) of my current Podfile is that the state of the
+build product: libPEHateoas-Client.a does not reflect how it should look in REAL
+projects using PEHateoas-Client.  I.e., as of now, when building this project
+for the sake of executing the unit tests, libPEHateoas-Client.a will have
+test-only-needed object code linked in, including: PEWire-Control and Kiwi.  But
+this is okay because in reality, the only reason I need to create build products
+in the context of my PEHateoas-Client project/workspace, is such that I can run
+the unit tests.  It's not like this funky libPEHateoas-Client.a file is being
+exported to the world or anything; no, that's the job of the podspec file.  And
+it, rightfully, lists PEHateoas-Client's dependencies appropriately, and clients
+should do just fine leveraging it.
+
+My test target (PEHateoas-ClientTests) is very simple.  It simply links with
+libPEHateoas-Client.a (so it has everything it needs from a linkage standpoint),
+and it simply needs to specify a couple of linker flags (-ObjC and -l"xml2").
+(-ObjC so that code with categories and such gets linked in).
+
+Some FYIs: Based on my understanding of Xocde/build-config, my
+PEHateoas-ClientTests target doesn't leverage the "Pods.*.xcconfig" config files
+for its OTHER_LDFLAGS setting; i.e., because in my PEHateoas-ClientTests
+target's build settings, I explicitly list -ObjC and -l"xml2", I believe this
+effectively overrides the 'OTHER_LDFLAGS' entry from the xcconfig configuration,
+which is fine for me.

@@ -1,0 +1,4 @@
+{"_links": {
+ "users": {"href": "http://example.com/fp/users"},
+ "fuel-purchases": {"href": "http://example.com/fp/fuel-purchases",
+                    "secured": true}}}

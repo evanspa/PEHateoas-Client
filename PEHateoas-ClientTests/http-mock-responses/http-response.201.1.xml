@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<http-response statusCode="201">
+  <annotation name="post success"
+              host="example.com"
+              port="80"
+              scheme="http"
+              uri-path="/auth-tokens"
+              request-method="POST">This is the description for this mock response.</annotation>
+  <headers>
+    <header name="Content-Type" value="application/json" />
+    <header name="Content-Length" value="233" />
+    <header name="Content-Language" value="en-US" />
+    <header name="Last-Modified" value="Tue, 15 Nov 1994 12:45:26 GMT" />
+    <header name="Location" value="http://www.example.com/auth-tokens/109234810939201002929" />
+  </headers>
+  <cookies />
+  <body><![CDATA[
+   { "auth-token": "109234810939201002929",
+     "last_name": "Smith",
+     "first_name": "John",
+     "email": "jsmith@ex.com",
+     "_links": {
+       "self": { "href": "http://www.example.com/auth-tokens/109234810939201002929",
+                 "type": "application/json" }
+       }}
+]]></body>
+</http-response>

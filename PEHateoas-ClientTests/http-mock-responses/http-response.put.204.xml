@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<http-response statusCode="204">
+  <annotation name="sample success response"
+              host="example.com"
+              port="80"
+              scheme="http"
+              uri-path="/users/u10391"
+              request-method="PUT">This is the description for this mock response.</annotation>
+  <headers>
+    <header name="Expires" value="Fri, 02 Dec 1995 12:00:03 GMT" />
+    <header name="Cache-Control" value="no-cache" />
+    <header name="Content-Type" value="application/json" />
+    <header name="Content-Length" value="50" />
+    <header name="Content-Language" value="en-US" />
+  </headers>
+  <cookies>
+    <cookie name="C1"
+            value="C1-val"
+            path="/"
+            secure="true"
+            domain=".paulevans.name"
+            expires="Sat, 16-Nov-2013 15:00:00 GMT" />
+  </cookies>
+  <body></body>
+</http-response>

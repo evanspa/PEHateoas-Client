@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<http-response statusCode="304">
+  <annotation name="not modified"
+              host="example.com"
+              port="80"
+              scheme="http"
+              uri-path="/users/u10391"
+              request-method="GET">This is the description for this mock response.</annotation>
+  <headers>
+    <header name="Content-Length" value="0" />
+  </headers>
+  <cookies />
+  <body />
+</http-response>

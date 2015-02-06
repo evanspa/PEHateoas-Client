@@ -1,0 +1,1044 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		07E47B2A9D40264A1C4B5ED6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC60884F663352A57D163AB /* libPods.a */; };
+		188354D21A7C99E000C87586 /* HCRelationExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 188354D11A7C99E000C87586 /* HCRelationExecutor.m */; };
+		188354D51A7C99EA00C87586 /* HCMediaType.m in Sources */ = {isa = PBXBuildFile; fileRef = 188354D41A7C99EA00C87586 /* HCMediaType.m */; };
+		188354D81A7C99F000C87586 /* HCRelation.m in Sources */ = {isa = PBXBuildFile; fileRef = 188354D71A7C99F000C87586 /* HCRelation.m */; };
+		188354DB1A7C99F900C87586 /* HCResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 188354DA1A7C99F900C87586 /* HCResource.m */; };
+		188354DE1A7C9A0000C87586 /* HCDeserializedPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 188354DD1A7C9A0000C87586 /* HCDeserializedPair.m */; };
+		188354E11A7C9A0700C87586 /* HCCharset.m in Sources */ = {isa = PBXBuildFile; fileRef = 188354E01A7C9A0700C87586 /* HCCharset.m */; };
+		188354E41A7C9A0D00C87586 /* HCAuthorization.m in Sources */ = {isa = PBXBuildFile; fileRef = 188354E31A7C9A0D00C87586 /* HCAuthorization.m */; };
+		188354E71A7C9A1400C87586 /* HCAuthentication.m in Sources */ = {isa = PBXBuildFile; fileRef = 188354E61A7C9A1400C87586 /* HCAuthentication.m */; };
+		188354EA1A7C9A2A00C87586 /* HCHalJsonSerializerExtensionSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 188354E91A7C9A2A00C87586 /* HCHalJsonSerializerExtensionSupport.m */; };
+		188354ED1A7C9A3800C87586 /* HCHalJsonSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 188354EC1A7C9A3800C87586 /* HCHalJsonSerializer.m */; };
+		188354F01A7C9A4C00C87586 /* HCAFURLRequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 188354EF1A7C9A4C00C87586 /* HCAFURLRequestSerializer.m */; };
+		188354F31A7C9A5200C87586 /* HCAFURLResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 188354F21A7C9A5200C87586 /* HCAFURLResponseSerializer.m */; };
+		188354F71A7C9A7600C87586 /* HCResourceSerializerSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 188354F61A7C9A7600C87586 /* HCResourceSerializerSupport.m */; };
+		188354FA1A7C9A8000C87586 /* HCUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 188354F91A7C9A8000C87586 /* HCUtils.m */; };
+		188354FD1A7C9A9E00C87586 /* NSURLRequest+HCAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 188354FC1A7C9A9E00C87586 /* NSURLRequest+HCAdditions.m */; };
+		188355001A7C9AA600C87586 /* NSHTTPURLResponse+HCAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 188354FF1A7C9AA600C87586 /* NSHTTPURLResponse+HCAdditions.m */; };
+		188355031A7C9AAC00C87586 /* NSURL+HCAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 188355021A7C9AAC00C87586 /* NSURL+HCAdditions.m */; };
+		188355091A7CA16900C87586 /* HCLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = 188355081A7CA16900C87586 /* HCLogging.m */; };
+		188355191A7CA68800C87586 /* HCRelationExecutorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 188355181A7CA68800C87586 /* HCRelationExecutorTests.m */; };
+		1883551C1A7CA6A500C87586 /* DummyCarDoorSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1883551A1A7CA6A500C87586 /* DummyCarDoorSerializer.m */; };
+		1883551D1A7CA6A500C87586 /* DummyCarSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1883551B1A7CA6A500C87586 /* DummyCarSerializer.m */; };
+		188355241A7CA6D700C87586 /* DummyCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 188355211A7CA6D700C87586 /* DummyCar.m */; };
+		188355251A7CA6D700C87586 /* DummyCarDoor.m in Sources */ = {isa = PBXBuildFile; fileRef = 188355231A7CA6D700C87586 /* DummyCarDoor.m */; };
+		188355271A7CA6E700C87586 /* HCHalJsonSerializerExtensionSupportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 188355261A7CA6E700C87586 /* HCHalJsonSerializerExtensionSupportTests.m */; };
+		188355291A7CA6F900C87586 /* http-mock-responses in Resources */ = {isa = PBXBuildFile; fileRef = 188355281A7CA6F900C87586 /* http-mock-responses */; };
+		1883552B1A7CA71700C87586 /* api-resource.json in Resources */ = {isa = PBXBuildFile; fileRef = 1883552A1A7CA71700C87586 /* api-resource.json */; };
+		1883552D1A7CA72C00C87586 /* HCHalJsonSerializerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1883552C1A7CA72C00C87586 /* HCHalJsonSerializerTests.m */; };
+		1883552F1A7CA73A00C87586 /* HCAFURLRequestSerializerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1883552E1A7CA73A00C87586 /* HCAFURLRequestSerializerTests.m */; };
+		188355311A7CA74300C87586 /* HCAFURLResponseSerializerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 188355301A7CA74300C87586 /* HCAFURLResponseSerializerTests.m */; };
+		188355331A7CA75100C87586 /* HCResourceSerializerSupportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 188355321A7CA75100C87586 /* HCResourceSerializerSupportTests.m */; };
+		1883553C1A7CA7AD00C87586 /* HCMediaTypeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1883553B1A7CA7AD00C87586 /* HCMediaTypeTests.m */; };
+		1883553E1A7CA7B200C87586 /* HCResourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1883553D1A7CA7B200C87586 /* HCResourceTests.m */; };
+		188355401A7CA7BA00C87586 /* HCRelationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1883553F1A7CA7BA00C87586 /* HCRelationTests.m */; };
+		188355421A7CA7C000C87586 /* HCDeserializedPairTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 188355411A7CA7C000C87586 /* HCDeserializedPairTests.m */; };
+		188355441A7CA7C600C87586 /* HCCharsetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 188355431A7CA7C600C87586 /* HCCharsetTests.m */; };
+		188355461A7CA7CB00C87586 /* HCAuthorizationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 188355451A7CA7CB00C87586 /* HCAuthorizationTests.m */; };
+		188355481A7CA7CF00C87586 /* HCAuthenticationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 188355471A7CA7CF00C87586 /* HCAuthenticationTests.m */; };
+		1883554A1A7CA7DF00C87586 /* HCUtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 188355491A7CA7DF00C87586 /* HCUtilsTests.m */; };
+		1883554C1A7CA7E700C87586 /* HCTestUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1883554B1A7CA7E700C87586 /* HCTestUtils.m */; };
+		1883554F1A7CA81A00C87586 /* HCFakeResourceSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1883554E1A7CA81A00C87586 /* HCFakeResourceSerializer.m */; };
+		18919BC61A7E82ED00DBCA24 /* libPEHateoas-Client.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1883549E1A7C973600C87586 /* libPEHateoas-Client.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		188354AB1A7C973600C87586 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 188354961A7C973500C87586 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1883549D1A7C973600C87586;
+			remoteInfo = "PEHateoas-Client";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1883549C1A7C973600C87586 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1883549E1A7C973600C87586 /* libPEHateoas-Client.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPEHateoas-Client.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		188354A91A7C973600C87586 /* PEHateoas-ClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PEHateoas-ClientTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		188354AF1A7C973600C87586 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		188354D01A7C99E000C87586 /* HCRelationExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCRelationExecutor.h; sourceTree = "<group>"; };
+		188354D11A7C99E000C87586 /* HCRelationExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCRelationExecutor.m; sourceTree = "<group>"; };
+		188354D31A7C99EA00C87586 /* HCMediaType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCMediaType.h; sourceTree = "<group>"; };
+		188354D41A7C99EA00C87586 /* HCMediaType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCMediaType.m; sourceTree = "<group>"; };
+		188354D61A7C99F000C87586 /* HCRelation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCRelation.h; sourceTree = "<group>"; };
+		188354D71A7C99F000C87586 /* HCRelation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCRelation.m; sourceTree = "<group>"; };
+		188354D91A7C99F900C87586 /* HCResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCResource.h; sourceTree = "<group>"; };
+		188354DA1A7C99F900C87586 /* HCResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCResource.m; sourceTree = "<group>"; };
+		188354DC1A7C9A0000C87586 /* HCDeserializedPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCDeserializedPair.h; sourceTree = "<group>"; };
+		188354DD1A7C9A0000C87586 /* HCDeserializedPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCDeserializedPair.m; sourceTree = "<group>"; };
+		188354DF1A7C9A0700C87586 /* HCCharset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCCharset.h; sourceTree = "<group>"; };
+		188354E01A7C9A0700C87586 /* HCCharset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCCharset.m; sourceTree = "<group>"; };
+		188354E21A7C9A0D00C87586 /* HCAuthorization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCAuthorization.h; sourceTree = "<group>"; };
+		188354E31A7C9A0D00C87586 /* HCAuthorization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCAuthorization.m; sourceTree = "<group>"; };
+		188354E51A7C9A1400C87586 /* HCAuthentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCAuthentication.h; sourceTree = "<group>"; };
+		188354E61A7C9A1400C87586 /* HCAuthentication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCAuthentication.m; sourceTree = "<group>"; };
+		188354E81A7C9A2A00C87586 /* HCHalJsonSerializerExtensionSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCHalJsonSerializerExtensionSupport.h; sourceTree = "<group>"; };
+		188354E91A7C9A2A00C87586 /* HCHalJsonSerializerExtensionSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCHalJsonSerializerExtensionSupport.m; sourceTree = "<group>"; };
+		188354EB1A7C9A3800C87586 /* HCHalJsonSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCHalJsonSerializer.h; sourceTree = "<group>"; };
+		188354EC1A7C9A3800C87586 /* HCHalJsonSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCHalJsonSerializer.m; sourceTree = "<group>"; };
+		188354EE1A7C9A4C00C87586 /* HCAFURLRequestSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCAFURLRequestSerializer.h; sourceTree = "<group>"; };
+		188354EF1A7C9A4C00C87586 /* HCAFURLRequestSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCAFURLRequestSerializer.m; sourceTree = "<group>"; };
+		188354F11A7C9A5200C87586 /* HCAFURLResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCAFURLResponseSerializer.h; sourceTree = "<group>"; };
+		188354F21A7C9A5200C87586 /* HCAFURLResponseSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCAFURLResponseSerializer.m; sourceTree = "<group>"; };
+		188354F41A7C9A6600C87586 /* HCResourceSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCResourceSerializer.h; sourceTree = "<group>"; };
+		188354F51A7C9A7600C87586 /* HCResourceSerializerSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCResourceSerializerSupport.h; sourceTree = "<group>"; };
+		188354F61A7C9A7600C87586 /* HCResourceSerializerSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCResourceSerializerSupport.m; sourceTree = "<group>"; };
+		188354F81A7C9A8000C87586 /* HCUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCUtils.h; sourceTree = "<group>"; };
+		188354F91A7C9A8000C87586 /* HCUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCUtils.m; sourceTree = "<group>"; };
+		188354FB1A7C9A9E00C87586 /* NSURLRequest+HCAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLRequest+HCAdditions.h"; sourceTree = "<group>"; };
+		188354FC1A7C9A9E00C87586 /* NSURLRequest+HCAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLRequest+HCAdditions.m"; sourceTree = "<group>"; };
+		188354FE1A7C9AA600C87586 /* NSHTTPURLResponse+HCAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSHTTPURLResponse+HCAdditions.h"; sourceTree = "<group>"; };
+		188354FF1A7C9AA600C87586 /* NSHTTPURLResponse+HCAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSHTTPURLResponse+HCAdditions.m"; sourceTree = "<group>"; };
+		188355011A7C9AAC00C87586 /* NSURL+HCAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+HCAdditions.h"; sourceTree = "<group>"; };
+		188355021A7C9AAC00C87586 /* NSURL+HCAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+HCAdditions.m"; sourceTree = "<group>"; };
+		188355071A7CA16900C87586 /* HCLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCLogging.h; sourceTree = "<group>"; };
+		188355081A7CA16900C87586 /* HCLogging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCLogging.m; sourceTree = "<group>"; };
+		188355181A7CA68800C87586 /* HCRelationExecutorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCRelationExecutorTests.m; sourceTree = "<group>"; };
+		1883551A1A7CA6A500C87586 /* DummyCarDoorSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyCarDoorSerializer.m; sourceTree = "<group>"; };
+		1883551B1A7CA6A500C87586 /* DummyCarSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyCarSerializer.m; sourceTree = "<group>"; };
+		1883551E1A7CA6C500C87586 /* DummyCarDoorSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyCarDoorSerializer.h; sourceTree = "<group>"; };
+		1883551F1A7CA6C500C87586 /* DummyCarSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyCarSerializer.h; sourceTree = "<group>"; };
+		188355201A7CA6D700C87586 /* DummyCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyCar.h; sourceTree = "<group>"; };
+		188355211A7CA6D700C87586 /* DummyCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyCar.m; sourceTree = "<group>"; };
+		188355221A7CA6D700C87586 /* DummyCarDoor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyCarDoor.h; sourceTree = "<group>"; };
+		188355231A7CA6D700C87586 /* DummyCarDoor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyCarDoor.m; sourceTree = "<group>"; };
+		188355261A7CA6E700C87586 /* HCHalJsonSerializerExtensionSupportTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCHalJsonSerializerExtensionSupportTests.m; sourceTree = "<group>"; };
+		188355281A7CA6F900C87586 /* http-mock-responses */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "http-mock-responses"; sourceTree = "<group>"; };
+		1883552A1A7CA71700C87586 /* api-resource.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "api-resource.json"; sourceTree = "<group>"; };
+		1883552C1A7CA72C00C87586 /* HCHalJsonSerializerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCHalJsonSerializerTests.m; sourceTree = "<group>"; };
+		1883552E1A7CA73A00C87586 /* HCAFURLRequestSerializerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCAFURLRequestSerializerTests.m; sourceTree = "<group>"; };
+		188355301A7CA74300C87586 /* HCAFURLResponseSerializerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCAFURLResponseSerializerTests.m; sourceTree = "<group>"; };
+		188355321A7CA75100C87586 /* HCResourceSerializerSupportTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCResourceSerializerSupportTests.m; sourceTree = "<group>"; };
+		1883553B1A7CA7AD00C87586 /* HCMediaTypeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCMediaTypeTests.m; sourceTree = "<group>"; };
+		1883553D1A7CA7B200C87586 /* HCResourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCResourceTests.m; sourceTree = "<group>"; };
+		1883553F1A7CA7BA00C87586 /* HCRelationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCRelationTests.m; sourceTree = "<group>"; };
+		188355411A7CA7C000C87586 /* HCDeserializedPairTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCDeserializedPairTests.m; sourceTree = "<group>"; };
+		188355431A7CA7C600C87586 /* HCCharsetTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCCharsetTests.m; sourceTree = "<group>"; };
+		188355451A7CA7CB00C87586 /* HCAuthorizationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCAuthorizationTests.m; sourceTree = "<group>"; };
+		188355471A7CA7CF00C87586 /* HCAuthenticationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCAuthenticationTests.m; sourceTree = "<group>"; };
+		188355491A7CA7DF00C87586 /* HCUtilsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCUtilsTests.m; sourceTree = "<group>"; };
+		1883554B1A7CA7E700C87586 /* HCTestUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCTestUtils.m; sourceTree = "<group>"; };
+		1883554D1A7CA7FD00C87586 /* HCTestUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCTestUtils.h; sourceTree = "<group>"; };
+		1883554E1A7CA81A00C87586 /* HCFakeResourceSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCFakeResourceSerializer.m; sourceTree = "<group>"; };
+		188355501A7CA83000C87586 /* HCFakeResourceSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCFakeResourceSerializer.h; sourceTree = "<group>"; };
+		36C9A4606B945FC270C1EF32 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		6CC60884F663352A57D163AB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB53FF855470C70EF6769DEF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1883549B1A7C973600C87586 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07E47B2A9D40264A1C4B5ED6 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		188354A61A7C973600C87586 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18919BC61A7E82ED00DBCA24 /* libPEHateoas-Client.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		188354951A7C973500C87586 = {
+			isa = PBXGroup;
+			children = (
+				188354A01A7C973600C87586 /* PEHateoas-Client */,
+				188354AD1A7C973600C87586 /* PEHateoas-ClientTests */,
+				1883549F1A7C973600C87586 /* Products */,
+				303AFF805557EF642C7EFC7B /* Frameworks */,
+				42652C5BEB54A1877C7552AA /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		1883549F1A7C973600C87586 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1883549E1A7C973600C87586 /* libPEHateoas-Client.a */,
+				188354A91A7C973600C87586 /* PEHateoas-ClientTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		188354A01A7C973600C87586 /* PEHateoas-Client */ = {
+			isa = PBXGroup;
+			children = (
+				188354BC1A7C986D00C87586 /* Categories */,
+				188354BB1A7C986500C87586 /* Utils */,
+				188354BA1A7C985F00C87586 /* Model */,
+				188354B91A7C985700C87586 /* Resource Serialization */,
+				188354B81A7C984900C87586 /* Relation Executor */,
+				188355061A7CA15000C87586 /* Logging */,
+			);
+			path = "PEHateoas-Client";
+			sourceTree = "<group>";
+		};
+		188354AD1A7C973600C87586 /* PEHateoas-ClientTests */ = {
+			isa = PBXGroup;
+			children = (
+				1883550E1A7CA57800C87586 /* Test Utils */,
+				1883550D1A7CA57200C87586 /* Utils */,
+				1883550C1A7CA56C00C87586 /* Model */,
+				1883550B1A7CA56300C87586 /* Resource Serialization */,
+				1883550A1A7CA55700C87586 /* Relation Executor */,
+				188354AE1A7C973600C87586 /* Supporting Files */,
+			);
+			path = "PEHateoas-ClientTests";
+			sourceTree = "<group>";
+		};
+		188354AE1A7C973600C87586 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1883552A1A7CA71700C87586 /* api-resource.json */,
+				188354AF1A7C973600C87586 /* Info.plist */,
+				188355281A7CA6F900C87586 /* http-mock-responses */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		188354B81A7C984900C87586 /* Relation Executor */ = {
+			isa = PBXGroup;
+			children = (
+				188354D01A7C99E000C87586 /* HCRelationExecutor.h */,
+				188354D11A7C99E000C87586 /* HCRelationExecutor.m */,
+			);
+			name = "Relation Executor";
+			sourceTree = "<group>";
+		};
+		188354B91A7C985700C87586 /* Resource Serialization */ = {
+			isa = PBXGroup;
+			children = (
+				188354BF1A7C991200C87586 /* Protocols */,
+				188354BE1A7C990500C87586 /* AFNetworking Serializers */,
+				188354BD1A7C988400C87586 /* Default Resource Serializer */,
+			);
+			name = "Resource Serialization";
+			sourceTree = "<group>";
+		};
+		188354BA1A7C985F00C87586 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				188354CB1A7C99A400C87586 /* Authentication */,
+				188354CA1A7C999D00C87586 /* Authorization */,
+				188354C91A7C999500C87586 /* Character Set */,
+				188354C81A7C998E00C87586 /* Deserialized Pair */,
+				188354C71A7C998900C87586 /* Relation */,
+				188354C61A7C998300C87586 /* Resource */,
+				188354C51A7C997C00C87586 /* Media Type */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		188354BB1A7C986500C87586 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				188354F81A7C9A8000C87586 /* HCUtils.h */,
+				188354F91A7C9A8000C87586 /* HCUtils.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		188354BC1A7C986D00C87586 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				188354CF1A7C99D000C87586 /* NSURL */,
+				188354CE1A7C99C800C87586 /* NSHTTPURLResponse */,
+				188354CD1A7C99BF00C87586 /* NSURLRequest */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		188354BD1A7C988400C87586 /* Default Resource Serializer */ = {
+			isa = PBXGroup;
+			children = (
+				188354C01A7C993C00C87586 /* HAL JSON Serializer */,
+			);
+			name = "Default Resource Serializer";
+			sourceTree = "<group>";
+		};
+		188354BE1A7C990500C87586 /* AFNetworking Serializers */ = {
+			isa = PBXGroup;
+			children = (
+				188354C31A7C995800C87586 /* Request */,
+				188354C21A7C995300C87586 /* Response */,
+			);
+			name = "AFNetworking Serializers";
+			sourceTree = "<group>";
+		};
+		188354BF1A7C991200C87586 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				188354F41A7C9A6600C87586 /* HCResourceSerializer.h */,
+				188354C41A7C996100C87586 /* Resource Serializer Support */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		188354C01A7C993C00C87586 /* HAL JSON Serializer */ = {
+			isa = PBXGroup;
+			children = (
+				188354EB1A7C9A3800C87586 /* HCHalJsonSerializer.h */,
+				188354EC1A7C9A3800C87586 /* HCHalJsonSerializer.m */,
+				188354C11A7C994800C87586 /* Extension Support */,
+			);
+			name = "HAL JSON Serializer";
+			sourceTree = "<group>";
+		};
+		188354C11A7C994800C87586 /* Extension Support */ = {
+			isa = PBXGroup;
+			children = (
+				188354E81A7C9A2A00C87586 /* HCHalJsonSerializerExtensionSupport.h */,
+				188354E91A7C9A2A00C87586 /* HCHalJsonSerializerExtensionSupport.m */,
+			);
+			name = "Extension Support";
+			sourceTree = "<group>";
+		};
+		188354C21A7C995300C87586 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				188354F11A7C9A5200C87586 /* HCAFURLResponseSerializer.h */,
+				188354F21A7C9A5200C87586 /* HCAFURLResponseSerializer.m */,
+			);
+			name = Response;
+			sourceTree = "<group>";
+		};
+		188354C31A7C995800C87586 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				188354EE1A7C9A4C00C87586 /* HCAFURLRequestSerializer.h */,
+				188354EF1A7C9A4C00C87586 /* HCAFURLRequestSerializer.m */,
+			);
+			name = Request;
+			sourceTree = "<group>";
+		};
+		188354C41A7C996100C87586 /* Resource Serializer Support */ = {
+			isa = PBXGroup;
+			children = (
+				188354F51A7C9A7600C87586 /* HCResourceSerializerSupport.h */,
+				188354F61A7C9A7600C87586 /* HCResourceSerializerSupport.m */,
+			);
+			name = "Resource Serializer Support";
+			sourceTree = "<group>";
+		};
+		188354C51A7C997C00C87586 /* Media Type */ = {
+			isa = PBXGroup;
+			children = (
+				188354D31A7C99EA00C87586 /* HCMediaType.h */,
+				188354D41A7C99EA00C87586 /* HCMediaType.m */,
+			);
+			name = "Media Type";
+			sourceTree = "<group>";
+		};
+		188354C61A7C998300C87586 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				188354D91A7C99F900C87586 /* HCResource.h */,
+				188354DA1A7C99F900C87586 /* HCResource.m */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
+		188354C71A7C998900C87586 /* Relation */ = {
+			isa = PBXGroup;
+			children = (
+				188354D61A7C99F000C87586 /* HCRelation.h */,
+				188354D71A7C99F000C87586 /* HCRelation.m */,
+			);
+			name = Relation;
+			sourceTree = "<group>";
+		};
+		188354C81A7C998E00C87586 /* Deserialized Pair */ = {
+			isa = PBXGroup;
+			children = (
+				188354DC1A7C9A0000C87586 /* HCDeserializedPair.h */,
+				188354DD1A7C9A0000C87586 /* HCDeserializedPair.m */,
+			);
+			name = "Deserialized Pair";
+			sourceTree = "<group>";
+		};
+		188354C91A7C999500C87586 /* Character Set */ = {
+			isa = PBXGroup;
+			children = (
+				188354DF1A7C9A0700C87586 /* HCCharset.h */,
+				188354E01A7C9A0700C87586 /* HCCharset.m */,
+			);
+			name = "Character Set";
+			sourceTree = "<group>";
+		};
+		188354CA1A7C999D00C87586 /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				188354E21A7C9A0D00C87586 /* HCAuthorization.h */,
+				188354E31A7C9A0D00C87586 /* HCAuthorization.m */,
+			);
+			name = Authorization;
+			sourceTree = "<group>";
+		};
+		188354CB1A7C99A400C87586 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				188354E51A7C9A1400C87586 /* HCAuthentication.h */,
+				188354E61A7C9A1400C87586 /* HCAuthentication.m */,
+			);
+			name = Authentication;
+			sourceTree = "<group>";
+		};
+		188354CD1A7C99BF00C87586 /* NSURLRequest */ = {
+			isa = PBXGroup;
+			children = (
+				188354FB1A7C9A9E00C87586 /* NSURLRequest+HCAdditions.h */,
+				188354FC1A7C9A9E00C87586 /* NSURLRequest+HCAdditions.m */,
+			);
+			name = NSURLRequest;
+			sourceTree = "<group>";
+		};
+		188354CE1A7C99C800C87586 /* NSHTTPURLResponse */ = {
+			isa = PBXGroup;
+			children = (
+				188354FE1A7C9AA600C87586 /* NSHTTPURLResponse+HCAdditions.h */,
+				188354FF1A7C9AA600C87586 /* NSHTTPURLResponse+HCAdditions.m */,
+			);
+			name = NSHTTPURLResponse;
+			sourceTree = "<group>";
+		};
+		188354CF1A7C99D000C87586 /* NSURL */ = {
+			isa = PBXGroup;
+			children = (
+				188355011A7C9AAC00C87586 /* NSURL+HCAdditions.h */,
+				188355021A7C9AAC00C87586 /* NSURL+HCAdditions.m */,
+			);
+			name = NSURL;
+			sourceTree = "<group>";
+		};
+		188355061A7CA15000C87586 /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				188355071A7CA16900C87586 /* HCLogging.h */,
+				188355081A7CA16900C87586 /* HCLogging.m */,
+			);
+			name = Logging;
+			sourceTree = "<group>";
+		};
+		1883550A1A7CA55700C87586 /* Relation Executor */ = {
+			isa = PBXGroup;
+			children = (
+				188355181A7CA68800C87586 /* HCRelationExecutorTests.m */,
+			);
+			name = "Relation Executor";
+			sourceTree = "<group>";
+		};
+		1883550B1A7CA56300C87586 /* Resource Serialization */ = {
+			isa = PBXGroup;
+			children = (
+				188355161A7CA5E100C87586 /* Protocols */,
+				188355131A7CA5C200C87586 /* AFNetworking Serializers */,
+				1883550F1A7CA59500C87586 /* HAL JSON Serializer */,
+			);
+			name = "Resource Serialization";
+			sourceTree = "<group>";
+		};
+		1883550C1A7CA56C00C87586 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1883553A1A7CA79E00C87586 /* Authentication */,
+				188355391A7CA79600C87586 /* Authorization */,
+				188355381A7CA78900C87586 /* Character Set */,
+				188355371A7CA78200C87586 /* Deserialized Pair */,
+				188355361A7CA77700C87586 /* Relation */,
+				188355351A7CA77300C87586 /* Resource */,
+				188355341A7CA76700C87586 /* Media Type */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		1883550D1A7CA57200C87586 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				188355491A7CA7DF00C87586 /* HCUtilsTests.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		1883550E1A7CA57800C87586 /* Test Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1883554D1A7CA7FD00C87586 /* HCTestUtils.h */,
+				1883554B1A7CA7E700C87586 /* HCTestUtils.m */,
+			);
+			name = "Test Utils";
+			sourceTree = "<group>";
+		};
+		1883550F1A7CA59500C87586 /* HAL JSON Serializer */ = {
+			isa = PBXGroup;
+			children = (
+				1883552C1A7CA72C00C87586 /* HCHalJsonSerializerTests.m */,
+				188355101A7CA59F00C87586 /* Extension Support */,
+			);
+			name = "HAL JSON Serializer";
+			sourceTree = "<group>";
+		};
+		188355101A7CA59F00C87586 /* Extension Support */ = {
+			isa = PBXGroup;
+			children = (
+				188355261A7CA6E700C87586 /* HCHalJsonSerializerExtensionSupportTests.m */,
+				188355121A7CA5B100C87586 /* Dummy Model */,
+				188355111A7CA5A700C87586 /* Dummy Concrete Serializer */,
+			);
+			name = "Extension Support";
+			sourceTree = "<group>";
+		};
+		188355111A7CA5A700C87586 /* Dummy Concrete Serializer */ = {
+			isa = PBXGroup;
+			children = (
+				1883551E1A7CA6C500C87586 /* DummyCarDoorSerializer.h */,
+				1883551A1A7CA6A500C87586 /* DummyCarDoorSerializer.m */,
+				1883551F1A7CA6C500C87586 /* DummyCarSerializer.h */,
+				1883551B1A7CA6A500C87586 /* DummyCarSerializer.m */,
+			);
+			name = "Dummy Concrete Serializer";
+			sourceTree = "<group>";
+		};
+		188355121A7CA5B100C87586 /* Dummy Model */ = {
+			isa = PBXGroup;
+			children = (
+				188355201A7CA6D700C87586 /* DummyCar.h */,
+				188355211A7CA6D700C87586 /* DummyCar.m */,
+				188355221A7CA6D700C87586 /* DummyCarDoor.h */,
+				188355231A7CA6D700C87586 /* DummyCarDoor.m */,
+			);
+			name = "Dummy Model";
+			sourceTree = "<group>";
+		};
+		188355131A7CA5C200C87586 /* AFNetworking Serializers */ = {
+			isa = PBXGroup;
+			children = (
+				188355151A7CA5D500C87586 /* Request */,
+				188355141A7CA5D100C87586 /* Response */,
+			);
+			name = "AFNetworking Serializers";
+			sourceTree = "<group>";
+		};
+		188355141A7CA5D100C87586 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				188355301A7CA74300C87586 /* HCAFURLResponseSerializerTests.m */,
+			);
+			name = Response;
+			sourceTree = "<group>";
+		};
+		188355151A7CA5D500C87586 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				1883552E1A7CA73A00C87586 /* HCAFURLRequestSerializerTests.m */,
+			);
+			name = Request;
+			sourceTree = "<group>";
+		};
+		188355161A7CA5E100C87586 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				188355501A7CA83000C87586 /* HCFakeResourceSerializer.h */,
+				1883554E1A7CA81A00C87586 /* HCFakeResourceSerializer.m */,
+				188355171A7CA5EC00C87586 /* Resource Serializer Support */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		188355171A7CA5EC00C87586 /* Resource Serializer Support */ = {
+			isa = PBXGroup;
+			children = (
+				188355321A7CA75100C87586 /* HCResourceSerializerSupportTests.m */,
+			);
+			name = "Resource Serializer Support";
+			sourceTree = "<group>";
+		};
+		188355341A7CA76700C87586 /* Media Type */ = {
+			isa = PBXGroup;
+			children = (
+				1883553B1A7CA7AD00C87586 /* HCMediaTypeTests.m */,
+			);
+			name = "Media Type";
+			sourceTree = "<group>";
+		};
+		188355351A7CA77300C87586 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				1883553D1A7CA7B200C87586 /* HCResourceTests.m */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
+		188355361A7CA77700C87586 /* Relation */ = {
+			isa = PBXGroup;
+			children = (
+				1883553F1A7CA7BA00C87586 /* HCRelationTests.m */,
+			);
+			name = Relation;
+			sourceTree = "<group>";
+		};
+		188355371A7CA78200C87586 /* Deserialized Pair */ = {
+			isa = PBXGroup;
+			children = (
+				188355411A7CA7C000C87586 /* HCDeserializedPairTests.m */,
+			);
+			name = "Deserialized Pair";
+			sourceTree = "<group>";
+		};
+		188355381A7CA78900C87586 /* Character Set */ = {
+			isa = PBXGroup;
+			children = (
+				188355431A7CA7C600C87586 /* HCCharsetTests.m */,
+			);
+			name = "Character Set";
+			sourceTree = "<group>";
+		};
+		188355391A7CA79600C87586 /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				188355451A7CA7CB00C87586 /* HCAuthorizationTests.m */,
+			);
+			name = Authorization;
+			sourceTree = "<group>";
+		};
+		1883553A1A7CA79E00C87586 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				188355471A7CA7CF00C87586 /* HCAuthenticationTests.m */,
+			);
+			name = Authentication;
+			sourceTree = "<group>";
+		};
+		303AFF805557EF642C7EFC7B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6CC60884F663352A57D163AB /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		42652C5BEB54A1877C7552AA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BB53FF855470C70EF6769DEF /* Pods.debug.xcconfig */,
+				36C9A4606B945FC270C1EF32 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1883549D1A7C973600C87586 /* PEHateoas-Client */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 188354B21A7C973600C87586 /* Build configuration list for PBXNativeTarget "PEHateoas-Client" */;
+			buildPhases = (
+				A9033EA085BE8B771B407E4E /* Check Pods Manifest.lock */,
+				1883549A1A7C973600C87586 /* Sources */,
+				1883549B1A7C973600C87586 /* Frameworks */,
+				1883549C1A7C973600C87586 /* CopyFiles */,
+				71B54C589B3C108A5A12BB05 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PEHateoas-Client";
+			productName = "PEHateoas-Client";
+			productReference = 1883549E1A7C973600C87586 /* libPEHateoas-Client.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		188354A81A7C973600C87586 /* PEHateoas-ClientTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 188354B51A7C973600C87586 /* Build configuration list for PBXNativeTarget "PEHateoas-ClientTests" */;
+			buildPhases = (
+				F75E6B70B81EAA3EE88FE13D /* Check Pods Manifest.lock */,
+				188354A51A7C973600C87586 /* Sources */,
+				188354A61A7C973600C87586 /* Frameworks */,
+				188354A71A7C973600C87586 /* Resources */,
+				041862ADE4678A98434D06C7 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				188354AC1A7C973600C87586 /* PBXTargetDependency */,
+			);
+			name = "PEHateoas-ClientTests";
+			productName = "PEHateoas-ClientTests";
+			productReference = 188354A91A7C973600C87586 /* PEHateoas-ClientTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		188354961A7C973500C87586 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Paul Evans";
+				TargetAttributes = {
+					1883549D1A7C973600C87586 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					188354A81A7C973600C87586 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+				};
+			};
+			buildConfigurationList = 188354991A7C973500C87586 /* Build configuration list for PBXProject "PEHateoas-Client" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 188354951A7C973500C87586;
+			productRefGroup = 1883549F1A7C973600C87586 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1883549D1A7C973600C87586 /* PEHateoas-Client */,
+				188354A81A7C973600C87586 /* PEHateoas-ClientTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		188354A71A7C973600C87586 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1883552B1A7CA71700C87586 /* api-resource.json in Resources */,
+				188355291A7CA6F900C87586 /* http-mock-responses in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		041862ADE4678A98434D06C7 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		71B54C589B3C108A5A12BB05 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A9033EA085BE8B771B407E4E /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F75E6B70B81EAA3EE88FE13D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1883549A1A7C973600C87586 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				188355091A7CA16900C87586 /* HCLogging.m in Sources */,
+				188354E71A7C9A1400C87586 /* HCAuthentication.m in Sources */,
+				188354D21A7C99E000C87586 /* HCRelationExecutor.m in Sources */,
+				188355001A7C9AA600C87586 /* NSHTTPURLResponse+HCAdditions.m in Sources */,
+				188354FD1A7C9A9E00C87586 /* NSURLRequest+HCAdditions.m in Sources */,
+				188354E41A7C9A0D00C87586 /* HCAuthorization.m in Sources */,
+				188354EA1A7C9A2A00C87586 /* HCHalJsonSerializerExtensionSupport.m in Sources */,
+				188354FA1A7C9A8000C87586 /* HCUtils.m in Sources */,
+				188354E11A7C9A0700C87586 /* HCCharset.m in Sources */,
+				188355031A7C9AAC00C87586 /* NSURL+HCAdditions.m in Sources */,
+				188354DE1A7C9A0000C87586 /* HCDeserializedPair.m in Sources */,
+				188354F71A7C9A7600C87586 /* HCResourceSerializerSupport.m in Sources */,
+				188354ED1A7C9A3800C87586 /* HCHalJsonSerializer.m in Sources */,
+				188354D81A7C99F000C87586 /* HCRelation.m in Sources */,
+				188354F31A7C9A5200C87586 /* HCAFURLResponseSerializer.m in Sources */,
+				188354DB1A7C99F900C87586 /* HCResource.m in Sources */,
+				188354F01A7C9A4C00C87586 /* HCAFURLRequestSerializer.m in Sources */,
+				188354D51A7C99EA00C87586 /* HCMediaType.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		188354A51A7C973600C87586 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				188355461A7CA7CB00C87586 /* HCAuthorizationTests.m in Sources */,
+				188355191A7CA68800C87586 /* HCRelationExecutorTests.m in Sources */,
+				188355251A7CA6D700C87586 /* DummyCarDoor.m in Sources */,
+				188355271A7CA6E700C87586 /* HCHalJsonSerializerExtensionSupportTests.m in Sources */,
+				1883551D1A7CA6A500C87586 /* DummyCarSerializer.m in Sources */,
+				188355441A7CA7C600C87586 /* HCCharsetTests.m in Sources */,
+				1883554A1A7CA7DF00C87586 /* HCUtilsTests.m in Sources */,
+				1883551C1A7CA6A500C87586 /* DummyCarDoorSerializer.m in Sources */,
+				1883554C1A7CA7E700C87586 /* HCTestUtils.m in Sources */,
+				1883552F1A7CA73A00C87586 /* HCAFURLRequestSerializerTests.m in Sources */,
+				188355331A7CA75100C87586 /* HCResourceSerializerSupportTests.m in Sources */,
+				188355421A7CA7C000C87586 /* HCDeserializedPairTests.m in Sources */,
+				1883552D1A7CA72C00C87586 /* HCHalJsonSerializerTests.m in Sources */,
+				188355311A7CA74300C87586 /* HCAFURLResponseSerializerTests.m in Sources */,
+				188355481A7CA7CF00C87586 /* HCAuthenticationTests.m in Sources */,
+				1883553C1A7CA7AD00C87586 /* HCMediaTypeTests.m in Sources */,
+				1883553E1A7CA7B200C87586 /* HCResourceTests.m in Sources */,
+				1883554F1A7CA81A00C87586 /* HCFakeResourceSerializer.m in Sources */,
+				188355241A7CA6D700C87586 /* DummyCar.m in Sources */,
+				188355401A7CA7BA00C87586 /* HCRelationTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		188354AC1A7C973600C87586 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1883549D1A7C973600C87586 /* PEHateoas-Client */;
+			targetProxy = 188354AB1A7C973600C87586 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		188354B01A7C973600C87586 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		188354B11A7C973600C87586 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		188354B31A7C973600C87586 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB53FF855470C70EF6769DEF /* Pods.debug.xcconfig */;
+			buildSettings = {
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		188354B41A7C973600C87586 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36C9A4606B945FC270C1EF32 /* Pods.release.xcconfig */;
+			buildSettings = {
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		188354B61A7C973600C87586 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB53FF855470C70EF6769DEF /* Pods.debug.xcconfig */;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "PEHateoas-ClientTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-l\"xml2\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		188354B71A7C973600C87586 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36C9A4606B945FC270C1EF32 /* Pods.release.xcconfig */;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "PEHateoas-ClientTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-l\"xml2\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		188354991A7C973500C87586 /* Build configuration list for PBXProject "PEHateoas-Client" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				188354B01A7C973600C87586 /* Debug */,
+				188354B11A7C973600C87586 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		188354B21A7C973600C87586 /* Build configuration list for PBXNativeTarget "PEHateoas-Client" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				188354B31A7C973600C87586 /* Debug */,
+				188354B41A7C973600C87586 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		188354B51A7C973600C87586 /* Build configuration list for PBXNativeTarget "PEHateoas-ClientTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				188354B61A7C973600C87586 /* Debug */,
+				188354B71A7C973600C87586 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 188354961A7C973500C87586 /* Project object */;
+}

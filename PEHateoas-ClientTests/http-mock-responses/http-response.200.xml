@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<http-response statusCode="200">
+  <annotation name="sample success response"
+              host="example.com"
+              port="80"
+              scheme="http"
+              uri-path="/users/u10391"
+              request-method="GET">This is the description for this mock response.</annotation>
+  <headers>
+    <header name="Expires" value="Fri, 02 Dec 1995 12:00:03 GMT" />
+    <header name="Cache-Control" value="no-cache" />
+    <header name="Content-Type" value="application/json" />
+    <header name="Content-Length" value="50" />
+    <header name="Content-Language" value="en-US" />
+  </headers>
+  <cookies>
+    <cookie name="C1"
+            value="C1-val"
+            path="/"
+            secure="true"
+            domain=".paulevans.name"
+            expires="Sat, 16-Nov-2013 15:00:00 GMT" />
+  </cookies>
+  <body><![CDATA[
+   { "last_name": "Smith",
+     "first_name": "John",
+     "email": "jsmith@ex.com",
+     "_links": {
+       "self": { "href": "/users/u10391" },
+       "http://update-user": { "href": "/users/u10391",
+                               "type": "application/xml" }}}
+]]></body>
+</http-response>

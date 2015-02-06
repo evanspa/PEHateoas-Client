@@ -1,0 +1,3 @@
+Remove the following entries from: Pods-PEHateoas-ClientTests.debug.xcconfig and Pods-PEHateoas-ClientTests.release.xcconfig:
+(+) -l"Pods-PEHateoas-ClientTests-PEObjc-Commons"
+(+) -l"Pods-PEHateoas-ClientTests-AWPagedArray"
