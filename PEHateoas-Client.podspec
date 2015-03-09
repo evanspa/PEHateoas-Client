@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.public_header_files = '**/*.h'
   s.exclude_files = "**/*Tests/*.*"
   s.requires_arc = true
-  s.dependency 'AFNetworking'
-  s.dependency 'PEObjc-Commons'
+  s.dependency 'AFNetworking', '~> 2.5.1'
+  s.dependency 'PEObjc-Commons', '~> 1.0.0'
   s.dependency 'CocoaLumberjack', '~> 1.9'
 end
