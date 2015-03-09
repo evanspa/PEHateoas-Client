@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "PEHateoas-Client"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.license      = "MIT"
   s.summary      = "An iOS library simplifying the consumption of hypermedia REST APIs."
   s.author       = { "Paul Evans" => "evansp2@gmail.com" }
@@ -12,6 +12,6 @@ Pod::Spec.new do |s|
   s.exclude_files = "**/*Tests/*.*"
   s.requires_arc = true
   s.dependency 'AFNetworking', '~> 2.5.1'
-  s.dependency 'PEObjc-Commons', '~> 1.0.0'
+  s.dependency 'PEObjc-Commons', '~> 1.0.1'
   s.dependency 'CocoaLumberjack', '~> 1.9'
 end
