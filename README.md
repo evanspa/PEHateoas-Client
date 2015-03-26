@@ -9,6 +9,27 @@ PEHateoas-Client supports a variation and subset of
 [HAL](http://stateless.co/hal_specification.html) (*we don't ignore CURIEs and
 we support a slight modification to the notion of embedded resources*).
 
+**Table of Contents**
+
+- [PEHateoas-Client](#)
+	- [Motivation](#)
+		- [HATEOAS Resources](#)
+	- [Design](#)
+		- [Primary Abstractions](#)
+			- [HCMediaType](#)
+			- [HCResource](#)
+			- [HCRelation](#)
+			- [HCRelationExecutor](#)
+			- [HCAuthentication and HCAuthorization](#)
+		- [Block Types of HCRelationExecutor Functions](#)
+				- [HCGETSuccessBlk](#)
+	- [Serializers](#)
+			- [Embedded Resources](#)
+	- [Example Usage](#)
+		- [GET](#)
+		- [POST](#)
+	- [Installation with CocoaPods](#)
+
 ## Motivation
 
 Simply put, in order to easily consume hypermedia REST APIs within iOS
