@@ -6,7 +6,7 @@ PEHateoas-Client is an iOS static library for simplifying the consumption
 hypermedia REST APIs.  PEHateoas-Client is built on top of
 [AFNetworking](https://github.com/AFNetworking/AFNetworking).  Currently
 PEHateoas-Client supports a variation and subset of
-[HAL](http://stateless.co/hal_specification.html) (*we don't ignore CURIEs and
+[HAL](http://stateless.co/hal_specification.html) (*we ignore CURIEs and
 we support a slight modification to the notion of embedded resources*).
 
 **Table of Contents**
