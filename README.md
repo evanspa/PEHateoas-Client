@@ -9,6 +9,9 @@ PEHateoas-Client supports a variation and subset of
 [HAL](http://stateless.co/hal_specification.html) (*we ignore CURIEs and
 we support a slight modification to the notion of embedded resources*).
 
+PEHateoas-Client is part of the
+[PE* iOS Library Suite](#pe-ios-library-suite).
+
 **Table of Contents**
 
 - [Motivation](#motivation)
@@ -28,6 +31,7 @@ we support a slight modification to the notion of embedded resources*).
   - [GET](#get)
   - [POST](#post)
 - [Installation with CocoaPods](#installation-with-cocoapods)
+- [PE* iOS Library Suite](#pe-ios-library-suite)
 
 ## Motivation
 
@@ -458,3 +462,19 @@ HCAuthorization *authorization = [HCAuthorization authWithScheme:@"fp-auth"
 ```ruby
 pod 'PEHateoas-Client', '~> 1.0.1'
 ```
+
+## PE* iOS Library Suite
+*(Each library is implemented as a CocoaPod-enabled iOS static library.)*
++ **[PEObjc-Commons](https://github.com/evanspa/PEObjc-Commons)**: a library
+  providing a set of everyday helper functionality.
++ **[PEXML-Utils](https://github.com/evanspa/PEXML-Utils)**: a library
+  simplifying working with XML.  Built on top of [KissXML](https://github.com/robbiehanson/KissXML).
++ **PEHateoas-Client**: this library.
++ **[PEWire-Control](https://github.com/evanspa/PEWire-Control)**: a library for
+  controlling Cocoa's NSURL loading system using simple XML files.  Built on top of [OHHTTPStubs](https://github.com/AliSoftware/OHHTTPStubs).
++ **[PEAppTransaction-Logger](https://github.com/evanspa/PEAppTransaction-Logger)**: a
+  library client for the PEAppTransaction Logging Framework.  Clojure-based libraries exist implementing the server-side [core data access](https://github.com/evanspa/pe-apptxn-core) and [REST API functionality](https://github.com/evanspa/pe-apptxn-restsupport).
++ **[PESimu-Select](https://github.com/evanspa/PESimu-Select)**: a library
+  aiding in the functional testing of web service enabled iOS applications.
++ **[PEDev-Console](https://github.com/evanspa/PEDev-Console)**: a library
+  aiding in the functional testing of iOS applications.
