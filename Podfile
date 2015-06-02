@@ -1,6 +1,6 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
-platform :ios, '8.1'
+platform :ios, '8.3'
 
 pod 'PEObjc-Commons', '~> 1.0.1'
 pod 'AFNetworking', '~> 2.5.1'

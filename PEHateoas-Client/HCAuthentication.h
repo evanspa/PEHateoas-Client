@@ -33,11 +33,7 @@
 
 #pragma mark - Properties
 
-@property (nonatomic, readonly) NSString *authScheme;
-
 @property (nonatomic, readonly) NSString *realm;
-
-@property (nonatomic, readonly) NSDictionary *authParams;
 
 #pragma mark - Equality
 
