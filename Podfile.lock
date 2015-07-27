@@ -20,43 +20,45 @@ PODS:
   - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - AWPagedArray (0.3.0)
   - CocoaLumberjack (1.9.2):
     - CocoaLumberjack/Extensions (= 1.9.2)
   - CocoaLumberjack/Core (1.9.2)
   - CocoaLumberjack/Extensions (1.9.2):
     - CocoaLumberjack/Core
+  - JGActionSheet (1.0.4)
   - KissXML (5.0)
   - Kiwi (2.3.1)
   - OHHTTPStubs (3.1.12):
     - OHHTTPStubs/Core (= 3.1.12)
   - OHHTTPStubs/Core (3.1.12)
-  - PEObjc-Commons (1.0.1):
-    - AWPagedArray (~> 0.3.0)
-  - PEWire-Control (1.0.1):
+  - PEObjc-Commons (1.0.30):
+    - JGActionSheet (~> 1.0.4)
+  - PEWire-Control (1.0.2):
+    - KissXML (~> 5.0)
     - OHHTTPStubs (~> 3.1.10)
-    - PEObjc-Commons (~> 1.0.1)
+    - PEObjc-Commons (~> 1.0.8)
     - PEXML-Utils (~> 1.0.1)
   - PEXML-Utils (1.0.1):
     - KissXML (~> 5.0)
     - PEObjc-Commons (~> 1.0.1)
 
 DEPENDENCIES:
-  - AFNetworking (~> 2.5.1)
+  - AFNetworking (~> 2.5.4)
   - CocoaLumberjack (~> 1.9)
+  - KissXML (~> 5.0)
   - Kiwi (~> 2.3.1)
-  - PEObjc-Commons (~> 1.0.1)
-  - PEWire-Control (~> 1.0.1)
+  - PEObjc-Commons (~> 1.0.30)
+  - PEWire-Control (~> 1.0.2)
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
-  AWPagedArray: 66db32d015a01d921133a4eb50da1d830271c39a
   CocoaLumberjack: 628fca2e88ef06f7cf6817309aa405f325d9a6fa
+  JGActionSheet: 7c6a947dca93a5c6031032ab76e157b19087d593
   KissXML: ce643413d618ad69886d0d43c3792b7dedfe476e
   Kiwi: f038a6c61f7a9e4d7766bff5717aa3b3fdb75f55
   OHHTTPStubs: 8cf0cfe6f34f13fc88fdf5b2a1b2c2536e8c0261
-  PEObjc-Commons: 219537ab6fb54353d0a151996ad53294c605146e
-  PEWire-Control: 408b26f34312ef844d9682c5dc8c8e42ba9c84ff
+  PEObjc-Commons: 2e128a55cb8f48294397171d56042a66fe9383a7
+  PEWire-Control: 2aeefa4014575adbc52cfbf3206395d9a7c07b22
   PEXML-Utils: f7e0759b8e4e2ec3a39c781b362d7fb233fc8421
 
-COCOAPODS: 0.37.2
+COCOAPODS: 0.38.2

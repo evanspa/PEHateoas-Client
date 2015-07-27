@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<http-response statusCode="409">
+  <annotation name="conflict response"
+              host="example.com"
+              port="80"
+              scheme="http"
+              uri-path="/users/u10391"
+              request-method="PUT">This is the description for this mock response.</annotation>
+  <headers>
+    <header name="Cache-Control" value="no-cache" />
+    <header name="Content-Type" value="application/json" />
+    <header name="Content-Length" value="50" />
+    <header name="Content-Language" value="en-US" />
+  </headers>
+  <cookies />
+  <body><![CDATA[
+   { "last_name": "Smith",
+     "first_name": "John",
+     "email": "jsmith@ex.com",
+     "salutation" : "Mr.",
+     "_links": {
+       "self": { "href": "/users/u10391" },
+       "http://update-user": { "href": "/users/u10391",
+                               "type": "application/xml" }}}
+]]></body>
+</http-response>

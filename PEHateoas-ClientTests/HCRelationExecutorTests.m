@@ -239,6 +239,7 @@ describe(@"HCRelationExecutor", ^{
       };
       [PEHttpResponseSimulator
         simulateResponseFromXml:contentsOfMockResponse(xmlHttpRespFile)
+          pathsRelativeToBundle:[NSBundle bundleForClass:[self class]]
                  requestLatency:0
                 responseLatency:0];
       [relExecutor doGetForTargetResource:targetRes
@@ -298,6 +299,7 @@ describe(@"HCRelationExecutor", ^{
       };
       [PEHttpResponseSimulator
         simulateResponseFromXml:contentsOfMockResponse(xmlHttpRespFile)
+          pathsRelativeToBundle:[NSBundle bundleForClass:[self class]]
                  requestLatency:0
                 responseLatency:0];
       [relExecutor doPutForTargetResource:targetRes
@@ -317,6 +319,67 @@ describe(@"HCRelationExecutor", ^{
                              otherHeaders:nil];
       expectedFutureFlags(YES, NO, NO, NO, NO, NO, NO, NO, 60);
     };
+  
+  void (^conflictExpectationsForPut)(NSString *,
+                                    NSString *,
+                                    NSDictionary *,
+                                    NSDictionary *,
+                                    NSArray *,
+                                    NSInteger) = ^(NSString *path,
+                                                   NSString *xmlHttpRespFile,
+                                                   NSDictionary *targetResModel,
+                                                   NSDictionary *expectedResModel,
+                                                   NSArray *expectedRelations,
+                                                   NSInteger expectedRespCode) {
+    HCResource *targetRes =
+    [[HCResource alloc] initWithMediaType:mediaType uri:url(path) model:targetResModel];
+    HCPUTSuccessBlk successBlk = ^(NSURL *location,
+                                   id resourceModel,
+                                   NSDate *lastModified,
+                                   NSDictionary *relations,
+                                   NSHTTPURLResponse *resp) {
+      isSuccess = YES;
+      [resp shouldNotBeNil];
+      [[theValue([resp statusCode]) should] equal:theValue(expectedRespCode)];
+      [[theValue([[resp allHeaderFields] count]) should] equal:theValue(6)];
+      if ([resp statusCode] == 200 && resourceModel) {
+        resourceModelTester(expectedResModel, resourceModel);
+        [HCTestUtils relations:relations shouldEqualRelations:expectedRelations];
+      }
+    };
+    HCConflictBlk conflictBlk = ^(NSURL *location,
+                                  id resourceModel,
+                                  NSDate *lastModified,
+                                  NSDictionary *relations,
+                                  NSHTTPURLResponse *resp) {
+      isConflict = YES;
+      [resp shouldNotBeNil];
+      [[theValue([resp statusCode]) should] equal:theValue(expectedRespCode)];
+      resourceModelTester(expectedResModel, resourceModel);
+      [HCTestUtils relations:relations shouldEqualRelations:expectedRelations];
+    };
+    [PEHttpResponseSimulator
+     simulateResponseFromXml:contentsOfMockResponse(xmlHttpRespFile)
+     pathsRelativeToBundle:[NSBundle bundleForClass:[self class]]
+     requestLatency:0
+     responseLatency:0];
+    [relExecutor doPutForTargetResource:targetRes
+                       targetSerializer:jsonSerializer
+                           asynchronous:YES
+                        completionQueue:nil
+                          authorization:nil
+                                success:successBlk
+                            redirection:newRedirectBlk(nil, NO, NO)
+                            clientError:newClientErrorBlk(-1)
+                 authenticationRequired:nil
+                            serverError:newServerErrorBlk(-1)
+                       unavailableError:newServerUnavailableBlk(nil, nil)
+                               conflict:conflictBlk
+                      connectionFailure:newConnFailureBlk(-1)
+                                timeout:60
+                           otherHeaders:nil];
+    expectedFutureFlags(NO, NO, YES, NO, NO, NO, NO, NO, 60);
+  };
 
     void (^successExpectationsForDelete)(NSString *,
                                          NSString *,
@@ -342,6 +405,7 @@ describe(@"HCRelationExecutor", ^{
       };
       [PEHttpResponseSimulator
         simulateResponseFromXml:contentsOfMockResponse(xmlHttpRespFile)
+          pathsRelativeToBundle:[NSBundle bundleForClass:[self class]]
                  requestLatency:0
                 responseLatency:0];
       [relExecutor doDeleteOfTargetResource:targetRes
@@ -422,11 +486,39 @@ describe(@"HCRelationExecutor", ^{
                                       expectedRels,
                                       200);
           });
+      
+      it(@"PUT works properly with a 409 response", ^{
+        NSDictionary *targetResModel = @{@"last_name" : @"Smith",
+                                         @"first_name" : @"John",
+                                         @"email" : @"jsmith@ex.com"};
+        NSDictionary *expectedResModel = @{@"last_name" : @"Smith",
+                                           @"first_name" : @"John",
+                                           @"email" : @"jsmith@ex.com",
+                                           @"salutation" : @"Mr."};
+        NSArray *expectedRels = @[
+                                  [HCTestUtils relationWithName:@"self"
+                                       subjectResourceMediaType:@"application/json"
+                                             subjectResourceUri:@"http://www.example.com/users/u10391"
+                                        targetResourceMediaType:@"application/json"
+                                              targetResourceUri:@"http://www.example.com/users/u10391"],
+                                  [HCTestUtils relationWithName:@"http://update-user"
+                                       subjectResourceMediaType:@"application/json"
+                                             subjectResourceUri:@"http://www.example.com/users/u10391"
+                                        targetResourceMediaType:@"application/xml"
+                                              targetResourceUri:@"http://www.example.com/users/u10391"]];
+        conflictExpectationsForPut(@"/users/u10391",
+                                   @"http-response.put.409",
+                                   targetResModel,
+                                   expectedResModel,
+                                   expectedRels,
+                                   409);
+      });
 
         it(@"POST works properly with 201 response w/no response body", ^{
             NSString *path = @"/users";
             [PEHttpResponseSimulator
               simulateResponseFromXml:contentsOfMockResponse(@"http-response.201")
+                pathsRelativeToBundle:[NSBundle bundleForClass:[self class]]
                        requestLatency:0
                       responseLatency:0];
             NSDictionary *resModel = @{@"last_name" : @"Smith",
@@ -471,6 +563,7 @@ describe(@"HCRelationExecutor", ^{
             NSString *path = @"/auth-tokens";
             [PEHttpResponseSimulator
               simulateResponseFromXml:contentsOfMockResponse(@"http-response.201.1")
+                pathsRelativeToBundle:[NSBundle bundleForClass:[self class]]
                        requestLatency:0
                       responseLatency:0];
             NSDictionary *resModel = @{@"email": @"jsmith@ex.com",
@@ -523,6 +616,7 @@ describe(@"HCRelationExecutor", ^{
             NSString *path = @"/users/xxx9201";
             [PEHttpResponseSimulator
               simulateResponseFromXml:contentsOfMockResponse(@"http-response.404")
+                pathsRelativeToBundle:[NSBundle bundleForClass:[self class]]
                        requestLatency:0
                       responseLatency:0];
             [relExecutor
@@ -547,6 +641,7 @@ describe(@"HCRelationExecutor", ^{
             NSString *path = @"/users/xxx9201";
             [PEHttpResponseSimulator
               simulateResponseFromXml:contentsOfMockResponse(@"http-response.401")
+                pathsRelativeToBundle:[NSBundle bundleForClass:[self class]]
                        requestLatency:0
                       responseLatency:0];
             [relExecutor
@@ -566,30 +661,29 @@ describe(@"HCRelationExecutor", ^{
                         otherHeaders:nil];
             expectedFutureFlags(NO, NO, NO, NO, YES, NO, NO, NO, 60);
           });
-      
+
       it(@"401 w/no www-authenticate header response works", ^{
         NSString *path = @"/users/xxx9201";
-        [PEHttpResponseSimulator
-         simulateResponseFromXml:contentsOfMockResponse(@"http-response.401.2")
-         requestLatency:0
-         responseLatency:0];
-        [relExecutor
-         doGetForTargetResource:[[HCResource alloc] initWithMediaType:mediaType uri:url(path)]
-         targetSerializer:jsonSerializer
-         asynchronous:YES
-         completionQueue:nil
-         authorization:nil
-         success:nil
-         redirection:newRedirectBlk(nil, NO, NO)
-         clientError:newClientErrorBlk(404)
-         authenticationRequired:newAuthReqdBlk(nil, nil, nil)
-         serverError:newServerErrorBlk(-1)
-         unavailableError:newServerUnavailableBlk(nil, nil)
-         connectionFailure:newConnFailureBlk(-1)
-         timeout:60
-         otherHeaders:nil];
+        [PEHttpResponseSimulator simulateResponseFromXml:contentsOfMockResponse(@"http-response.401.2")
+                                   pathsRelativeToBundle:[NSBundle bundleForClass:[self class]]
+                                          requestLatency:0
+                                         responseLatency:0];
+        [relExecutor doGetForTargetResource:[[HCResource alloc] initWithMediaType:mediaType uri:url(path)]
+                           targetSerializer:jsonSerializer
+                               asynchronous:YES
+                            completionQueue:nil
+                              authorization:nil
+                                    success:nil
+                                redirection:newRedirectBlk(nil, NO, NO)
+                                clientError:newClientErrorBlk(404)
+                     authenticationRequired:newAuthReqdBlk(nil, nil, nil)
+                                serverError:newServerErrorBlk(-1)
+                           unavailableError:newServerUnavailableBlk(nil, nil)
+                          connectionFailure:newConnFailureBlk(-1)
+                                    timeout:60
+                               otherHeaders:nil];
         expectedFutureFlags(NO, NO, NO, NO, YES, NO, NO, NO, 60);
-      });
+        });
       });
 
     context(@"Redirection (3XX) responses", ^{
@@ -597,12 +691,14 @@ describe(@"HCRelationExecutor", ^{
             NSString *path = @"/users/old/u10391";
             [PEHttpResponseSimulator
               simulateResponseFromXml:contentsOfMockResponse(@"http-response.301")
+                pathsRelativeToBundle:[NSBundle bundleForClass:[self class]]
                        requestLatency:0
                       responseLatency:0];
             // afnetworking will automatically follow the redirect, so we need
             // to make sure we've simulated the redirect's target resource
             [PEHttpResponseSimulator
               simulateResponseFromXml:contentsOfMockResponse(@"http-response.200")
+                pathsRelativeToBundle:[NSBundle bundleForClass:[self class]]
                        requestLatency:0
                       responseLatency:0];
             [relExecutor
@@ -640,6 +736,7 @@ describe(@"HCRelationExecutor", ^{
             NSString *path = @"/users/u10391";
             [PEHttpResponseSimulator
               simulateResponseFromXml:contentsOfMockResponse(@"http-response.304")
+                pathsRelativeToBundle:[NSBundle bundleForClass:[self class]]
                        requestLatency:0
                       responseLatency:0];
             [relExecutor
@@ -664,12 +761,14 @@ describe(@"HCRelationExecutor", ^{
           NSString *path = @"/users/tmp/tmp9201";
           [PEHttpResponseSimulator
             simulateResponseFromXml:contentsOfMockResponse(@"http-response.303")
+              pathsRelativeToBundle:[NSBundle bundleForClass:[self class]]
                      requestLatency:0
                     responseLatency:0];
           // afnetworking will automatically follow the redirect, so we need
           // to make sure we've simulated the redirect's target resource
           [PEHttpResponseSimulator
             simulateResponseFromXml:contentsOfMockResponse(@"http-response.200")
+              pathsRelativeToBundle:[NSBundle bundleForClass:[self class]]
                      requestLatency:0
                     responseLatency:0];
           [relExecutor
@@ -696,6 +795,7 @@ describe(@"HCRelationExecutor", ^{
             NSString *path = @"/users/u10391";
             [PEHttpResponseSimulator
               simulateResponseFromXml:contentsOfMockResponse(@"http-response.503.0")
+                pathsRelativeToBundle:[NSBundle bundleForClass:[self class]]
                        requestLatency:0
                       responseLatency:0];
             [relExecutor
@@ -720,6 +820,7 @@ describe(@"HCRelationExecutor", ^{
             NSString *path = @"/users/u10391";
             [PEHttpResponseSimulator
               simulateResponseFromXml:contentsOfMockResponse(@"http-response.503.1")
+                pathsRelativeToBundle:[NSBundle bundleForClass:[self class]]
                        requestLatency:0
                       responseLatency:0];
             NSDate *expectedRetryAfter =
@@ -783,6 +884,7 @@ describe(@"HCRelationExecutor", ^{
             // the response latency.
             [PEHttpResponseSimulator
               simulateResponseFromXml:contentsOfMockResponse(@"http-response.200")
+                pathsRelativeToBundle:[NSBundle bundleForClass:[self class]]
                        requestLatency:20
                       responseLatency:0];
             [relExecutor

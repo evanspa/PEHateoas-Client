@@ -1,7 +1,7 @@
 #!/bin/bash
 
 readonly PROJECT_NAME="PEHateoas-Client"
-readonly SDK_VERSION="8.1"
+readonly SDK_VERSION="8.4"
 readonly ARCH="i386"
 export LC_CTYPE=en_US.UTF-8
 
