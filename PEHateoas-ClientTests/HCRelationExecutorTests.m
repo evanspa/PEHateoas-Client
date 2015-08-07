@@ -409,6 +409,7 @@ describe(@"HCRelationExecutor", ^{
                  requestLatency:0
                 responseLatency:0];
       [relExecutor doDeleteOfTargetResource:targetRes
+                    wouldBeTargetSerializer:jsonSerializer
                                asynchronous:YES
                             completionQueue:nil
                               authorization:nil

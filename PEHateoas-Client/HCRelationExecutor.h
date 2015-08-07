@@ -400,6 +400,7 @@ typedef void (^HCConnFailureBlk)(NSInteger nsurlErr);
                   otherHeaders:(NSDictionary *)otherHeaders;
 
 - (void)doDeleteOfTargetResource:(HCResource *)targetResource
+         wouldBeTargetSerializer:(id<HCResourceSerializer>)wouldBeTargetSerializer
                     asynchronous:(BOOL)asynchronous
                  completionQueue:(dispatch_queue_t)completionQueue
                    authorization:(HCAuthorization *)authorization
@@ -416,6 +417,7 @@ typedef void (^HCConnFailureBlk)(NSInteger nsurlErr);
 
 - (void)doDeleteOfTargetResource:(HCResource *)targetResource
                ifUnmodifiedSince:(NSDate *)unmodifiedSince
+         wouldBeTargetSerializer:(id<HCResourceSerializer>)wouldBeTargetSerializer
                     asynchronous:(BOOL)asynchronous
                  completionQueue:(dispatch_queue_t)completionQueue
                    authorization:(HCAuthorization *)authorization

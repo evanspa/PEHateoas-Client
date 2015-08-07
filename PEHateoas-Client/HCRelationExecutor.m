@@ -565,6 +565,7 @@ typedef void (^AFFailureBlk)(AFHTTPRequestOperation *, NSError *);
 }
 
 - (void)doDeleteOfTargetResource:(HCResource *)targetResource
+         wouldBeTargetSerializer:(id<HCResourceSerializer>)wouldBeTargetSerializer
                     asynchronous:(BOOL)asynchronous
                  completionQueue:(dispatch_queue_t)completionQueue
                    authorization:(HCAuthorization *)authorization
@@ -580,6 +581,7 @@ typedef void (^AFFailureBlk)(AFHTTPRequestOperation *, NSError *);
                     otherHeaders:(NSDictionary *)otherHeaders {
   [self doDeleteOfTargetResource:targetResource
                ifUnmodifiedSince:nil
+         wouldBeTargetSerializer:wouldBeTargetSerializer
                     asynchronous:asynchronous
                  completionQueue:completionQueue
                    authorization:authorization
@@ -597,6 +599,7 @@ typedef void (^AFFailureBlk)(AFHTTPRequestOperation *, NSError *);
 
 - (void)doDeleteOfTargetResource:(HCResource *)targetResource
                ifUnmodifiedSince:(NSDate *)unmodifiedSince
+         wouldBeTargetSerializer:(id<HCResourceSerializer>)wouldBeTargetSerializer
                     asynchronous:(BOOL)asynchronous
                  completionQueue:(dispatch_queue_t)completionQueue
                    authorization:(HCAuthorization *)authorization
@@ -616,13 +619,15 @@ typedef void (^AFFailureBlk)(AFHTTPRequestOperation *, NSError *);
     [NSMutableDictionary dictionaryWithDictionary:otherHeaders];
     [otherHeadersMutDict setObject:[HCUtils rfc7231StringFromDate:unmodifiedSince]
                             forKey:@"if-unmodified-since"];
-    mgr = [self reqOpMgrWithAuthorization:authorization
-                                  timeout:timeout
-                             otherHeaders:otherHeadersMutDict];
+    mgr = [self reqOpMgrWithResponseSerializer:wouldBeTargetSerializer
+                                 authorization:authorization
+                                       timeout:timeout
+                                  otherHeaders:otherHeadersMutDict];
   } else  {
-    mgr = [self reqOpMgrWithAuthorization:authorization
-                                  timeout:timeout
-                             otherHeaders:otherHeaders];
+    mgr = [self reqOpMgrWithResponseSerializer:wouldBeTargetSerializer
+                                 authorization:authorization
+                                       timeout:timeout
+                                  otherHeaders:otherHeaders];
   }
   AFSuccessBlk successBlk = ^(AFHTTPRequestOperation *op, id responseObj) {
     void (^conflictProcessor)(void) = ^ {
