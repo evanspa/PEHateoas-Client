@@ -243,6 +243,7 @@ describe(@"HCRelationExecutor", ^{
                  requestLatency:0
                 responseLatency:0];
       [relExecutor doGetForTargetResource:targetRes
+                          ifModifiedSince:nil
                          targetSerializer:jsonSerializer
                              asynchronous:YES
                           completionQueue:nil
@@ -622,6 +623,7 @@ describe(@"HCRelationExecutor", ^{
                       responseLatency:0];
             [relExecutor
               doGetForTargetResource:[[HCResource alloc] initWithMediaType:mediaType uri:url(path)]
+                     ifModifiedSince:nil
                     targetSerializer:jsonSerializer
                         asynchronous:YES
                      completionQueue:nil
@@ -647,6 +649,7 @@ describe(@"HCRelationExecutor", ^{
                       responseLatency:0];
             [relExecutor
               doGetForTargetResource:[[HCResource alloc] initWithMediaType:mediaType uri:url(path)]
+                     ifModifiedSince:nil
                     targetSerializer:jsonSerializer
                         asynchronous:YES
                      completionQueue:nil
@@ -670,6 +673,7 @@ describe(@"HCRelationExecutor", ^{
                                           requestLatency:0
                                          responseLatency:0];
         [relExecutor doGetForTargetResource:[[HCResource alloc] initWithMediaType:mediaType uri:url(path)]
+                            ifModifiedSince:nil
                            targetSerializer:jsonSerializer
                                asynchronous:YES
                             completionQueue:nil
@@ -704,6 +708,7 @@ describe(@"HCRelationExecutor", ^{
                       responseLatency:0];
             [relExecutor
               doGetForTargetResource:[[HCResource alloc] initWithMediaType:mediaType uri:url(path)]
+                     ifModifiedSince:nil
                     targetSerializer:jsonSerializer
                         asynchronous:YES
                      completionQueue:nil
@@ -742,6 +747,7 @@ describe(@"HCRelationExecutor", ^{
                       responseLatency:0];
             [relExecutor
               doGetForTargetResource:[[HCResource alloc] initWithMediaType:mediaType uri:url(path)]
+                     ifModifiedSince:nil
                     targetSerializer:jsonSerializer
                         asynchronous:YES
                      completionQueue:nil
@@ -774,6 +780,7 @@ describe(@"HCRelationExecutor", ^{
                     responseLatency:0];
           [relExecutor
             doGetForTargetResource:[[HCResource alloc] initWithMediaType:mediaType uri:url(path)]
+                   ifModifiedSince:nil
                   targetSerializer:jsonSerializer
                       asynchronous:YES
                    completionQueue:nil
@@ -801,6 +808,7 @@ describe(@"HCRelationExecutor", ^{
                       responseLatency:0];
             [relExecutor
               doGetForTargetResource:[[HCResource alloc] initWithMediaType:mediaType uri:url(path)]
+                     ifModifiedSince:nil
                     targetSerializer:jsonSerializer
                         asynchronous:YES
                      completionQueue:nil
@@ -830,6 +838,7 @@ describe(@"HCRelationExecutor", ^{
                    dateFromString:@"Fri, 04 Nov 2014 23:59:59 GMT"];
             [relExecutor
               doGetForTargetResource:[[HCResource alloc] initWithMediaType:mediaType uri:url(path)]
+                     ifModifiedSince:nil
                     targetSerializer:jsonSerializer
                         asynchronous:YES
                      completionQueue:nil
@@ -854,6 +863,7 @@ describe(@"HCRelationExecutor", ^{
                                                         andRequestHttpMethod:@"GET"];
             [relExecutor
               doGetForTargetResource:[[HCResource alloc] initWithMediaType:mediaType uri:url(path)]
+                     ifModifiedSince:nil
                     targetSerializer:jsonSerializer
                         asynchronous:YES
                      completionQueue:nil
@@ -890,6 +900,7 @@ describe(@"HCRelationExecutor", ^{
                       responseLatency:0];
             [relExecutor
               doGetForTargetResource:[[HCResource alloc] initWithMediaType:mediaType uri:url(path)]
+                     ifModifiedSince:nil
                     targetSerializer:jsonSerializer
                         asynchronous:YES
                      completionQueue:nil

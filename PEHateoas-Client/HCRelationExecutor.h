@@ -241,21 +241,6 @@ typedef void (^HCConnFailureBlk)(NSInteger nsurlErr);
  the connectionFailure block will be executed.
  */
 - (void)doGetForTargetResource:(HCResource *)targetResource
-              targetSerializer:(id<HCResourceSerializer>)targetSerializer
-                  asynchronous:(BOOL)asynchronous
-               completionQueue:(dispatch_queue_t)completionQueue
-                 authorization:(HCAuthorization *)authorization
-                       success:(HCGETSuccessBlk)success
-                   redirection:(HCRedirectionBlk)redirection
-                   clientError:(HCClientErrorBlk)clientErr
-        authenticationRequired:(HCAuthReqdErrorBlk)authRequired
-                   serverError:(HCServerErrorBlk)serverErr
-              unavailableError:(HCServerUnavailableBlk)unavailableErr
-             connectionFailure:(HCConnFailureBlk)connFailure
-                       timeout:(NSInteger)timeout
-                  otherHeaders:(NSDictionary *)otherHeaders;
-
-- (void)doGetForTargetResource:(HCResource *)targetResource
                ifModifiedSince:(NSDate *)modifiedSince
               targetSerializer:(id<HCResourceSerializer>)targetSerializer
                   asynchronous:(BOOL)asynchronous
@@ -270,6 +255,22 @@ typedef void (^HCConnFailureBlk)(NSInteger nsurlErr);
              connectionFailure:(HCConnFailureBlk)connFailure
                        timeout:(NSInteger)timeout
                   otherHeaders:(NSDictionary *)otherHeaders;
+
+- (void)doGetForURLString:(NSString *)URLString
+          ifModifiedSince:(NSDate *)modifiedSince
+         targetSerializer:(id<HCResourceSerializer>)targetSerializer
+             asynchronous:(BOOL)asynchronous
+          completionQueue:(dispatch_queue_t)completionQueue
+            authorization:(HCAuthorization *)authorization
+                  success:(HCGETSuccessBlk)success
+              redirection:(HCRedirectionBlk)redirection
+              clientError:(HCClientErrorBlk)clientErr
+   authenticationRequired:(HCAuthReqdErrorBlk)authRequired
+              serverError:(HCServerErrorBlk)serverErr
+         unavailableError:(HCServerUnavailableBlk)unavailableErr
+        connectionFailure:(HCConnFailureBlk)connFailure
+                  timeout:(NSInteger)timeout
+             otherHeaders:(NSDictionary *)otherHeaders;
 
 /**
  Issues an HTTP POST request against the given target resource (the target

@@ -460,7 +460,7 @@ HCAuthorization *authorization = [HCAuthorization authWithScheme:@"fp-auth"
 ## Installation with CocoaPods
 
 ```ruby
-pod 'PEHateoas-Client', '~> 1.0.4'
+pod 'PEHateoas-Client', '~> 1.0.5'
 ```
 
 ## PE* iOS Library Suite

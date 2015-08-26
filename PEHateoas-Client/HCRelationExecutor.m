@@ -69,11 +69,20 @@ typedef void (^AFFailureBlk)(AFHTTPRequestOperation *, NSError *);
                         httpMethod:(NSString *)httpMethod
                           resource:(HCResource *)resource
                         parameters:(NSDictionary *)parameters {
-  return [[mgr requestSerializer]
-             requestWithMethod:httpMethod
-                     URLString:[self urlForResource:resource forOpMgr:mgr]
-                    parameters:parameters
-                         error:nil];
+  return [self requestWithOpMgr:mgr
+                     httpMethod:httpMethod
+                      URLString:[self urlForResource:resource forOpMgr:mgr]
+                     parameters:parameters];
+}
+
+- (NSURLRequest *)requestWithOpMgr:(AFHTTPRequestOperationManager *)mgr
+                        httpMethod:(NSString *)httpMethod
+                         URLString:(NSString *)URLString
+                        parameters:(NSDictionary *)parameters {
+  return [[mgr requestSerializer] requestWithMethod:httpMethod
+                                          URLString:URLString
+                                         parameters:parameters
+                                              error:nil];
 }
 
 - (AFHTTPRequestOperationManager *)reqOpMgrWithRequestSerializer:(id<HCResourceSerializer>)reqSerializer
@@ -269,38 +278,78 @@ typedef void (^AFFailureBlk)(AFHTTPRequestOperation *, NSError *);
   };
 }
 
-#pragma mark - Executors
-
-- (void)doGetForTargetResource:(HCResource *)targetResource
-              targetSerializer:(id<HCResourceSerializer>)targetSerializer
-                  asynchronous:(BOOL)asynchronous
-               completionQueue:(dispatch_queue_t)completionQueue
-                 authorization:(HCAuthorization *)authorization
-                       success:(HCGETSuccessBlk)success
-                   redirection:(HCRedirectionBlk)redirection
-                   clientError:(HCClientErrorBlk)clientErr
-        authenticationRequired:(HCAuthReqdErrorBlk)authRequired
-                   serverError:(HCServerErrorBlk)serverErr
-              unavailableError:(HCServerUnavailableBlk)unavailableErr
-             connectionFailure:(HCConnFailureBlk)connFailure
-                       timeout:(NSInteger)timeout
-                  otherHeaders:(NSDictionary *)otherHeaders {
-  [self doGetForTargetResource:targetResource
-               ifModifiedSince:nil
-              targetSerializer:targetSerializer
-                  asynchronous:asynchronous
-               completionQueue:completionQueue
-                 authorization:authorization
-                       success:success
-                   redirection:redirection
-                   clientError:clientErr
-        authenticationRequired:authRequired
-                   serverError:serverErr
-              unavailableError:unavailableErr
-             connectionFailure:connFailure
-                       timeout:timeout
-                  otherHeaders:otherHeaders];
+- (AFHTTPRequestOperationManager*)managerForGetWithTargetSerializer:(id<HCResourceSerializer>)targetSerializer
+                                                    ifModifiedSince:(NSDate *)modifiedSince
+                                                      authorization:(HCAuthorization *)authorization
+                                                            timeout:(NSInteger)timeout
+                                                       otherHeaders:(NSDictionary *)otherHeaders {
+  AFHTTPRequestOperationManager *mgr;
+  if (modifiedSince) {
+    NSMutableDictionary *otherHeadersMutDict =
+    [NSMutableDictionary dictionaryWithDictionary:otherHeaders];
+    [otherHeadersMutDict setObject:[HCUtils rfc7231StringFromDate:modifiedSince]
+                            forKey:@"if-modified-since"];
+    mgr = [self reqOpMgrWithResponseSerializer:targetSerializer
+                                 authorization:authorization
+                                       timeout:timeout
+                                  otherHeaders:otherHeadersMutDict];
+  } else {
+    mgr = [self reqOpMgrWithResponseSerializer:targetSerializer
+                                 authorization:authorization
+                                       timeout:timeout
+                                  otherHeaders:otherHeaders];
+  }
+  return mgr;
 }
+
+- (void)doGetInvokerForURLString:(NSString *)URLString
+                requestOpManager:(AFHTTPRequestOperationManager *)mgr
+                    asynchronous:(BOOL)asynchronous
+                 completionQueue:(dispatch_queue_t)completionQueue
+                         success:(HCGETSuccessBlk)success
+                     redirection:(HCRedirectionBlk)redirection
+                     clientError:(HCClientErrorBlk)clientErr
+          authenticationRequired:(HCAuthReqdErrorBlk)authRequired
+                     serverError:(HCServerErrorBlk)serverErr
+                unavailableError:(HCServerUnavailableBlk)unavailableErr
+               connectionFailure:(HCConnFailureBlk)connFailure {
+  AFSuccessBlk successBlk = ^(AFHTTPRequestOperation *op, id responseObj) {
+    void (^successProcessor)(void) = ^{
+      HCDeserializedPair *pair = (HCDeserializedPair *)responseObj;
+      NSHTTPURLResponse *resp = [op response];
+      success([HCUtils locationAsUrlFromResponse:resp],
+              [pair resourceModel],
+              [self lastModifiedDateFromResponse:resp],
+              [pair relations],
+              [op response]);
+    };
+    [self processResponse:op
+         successProcessor:successProcessor
+              redirection:redirection
+        conflictProcessor:nil // conflicts are not possible with HTTP GETs
+              clientError:clientErr
+   authenticationRequired:authRequired
+              serverError:serverErr
+         unavailableError:unavailableErr];
+  };
+  AFFailureBlk failureBlk = ^(AFHTTPRequestOperation *op, NSError *err) {
+    connFailure([err code]);
+  };
+  NSURLRequest *request = [self requestWithOpMgr:mgr httpMethod:@"GET" URLString:URLString parameters:nil];
+  DDLogDebug(@"(doGetInvoker:) HTTP request: [%@]", request);
+  AFHTTPRequestOperation *operation =
+    [mgr HTTPRequestOperationWithRequest:request success:successBlk failure:failureBlk];
+  [operation setSecurityPolicy:_afsecurityPolicy];
+  [operation setRedirectResponseBlock:[self newAFRedirectBlkFor301Capture:redirection]];
+  if (completionQueue) { [operation setCompletionQueue:completionQueue]; }
+  if (asynchronous) {
+    [[mgr operationQueue] addOperation:operation];
+  } else {
+    [operation start];
+  }
+}
+
+#pragma mark - Executors
 
 - (void)doGetForTargetResource:(HCResource *)targetResource
                ifModifiedSince:(NSDate *)modifiedSince
@@ -317,61 +366,55 @@ typedef void (^AFFailureBlk)(AFHTTPRequestOperation *, NSError *);
              connectionFailure:(HCConnFailureBlk)connFailure
                        timeout:(NSInteger)timeout
                   otherHeaders:(NSDictionary *)otherHeaders {
-  AFHTTPRequestOperationManager *mgr;
-  if (modifiedSince) {
-    NSMutableDictionary *otherHeadersMutDict =
-      [NSMutableDictionary dictionaryWithDictionary:otherHeaders];
-    [otherHeadersMutDict setObject:[HCUtils rfc7231StringFromDate:modifiedSince]
-                            forKey:@"if-modified-since"];
-    mgr = [self reqOpMgrWithResponseSerializer:targetSerializer
-                                 authorization:authorization
-                                       timeout:timeout
-                                  otherHeaders:otherHeadersMutDict];
-  } else {
-    mgr = [self reqOpMgrWithResponseSerializer:targetSerializer
-                                 authorization:authorization
-                                       timeout:timeout
-                                  otherHeaders:otherHeaders];
-  }
-  AFSuccessBlk successBlk = ^(AFHTTPRequestOperation *op, id responseObj) {
-      void (^successProcessor)(void) = ^{
-        HCDeserializedPair *pair = (HCDeserializedPair *)responseObj;
-        NSHTTPURLResponse *resp = [op response];
-        success([HCUtils locationAsUrlFromResponse:resp],
-                [pair resourceModel],
-                [self lastModifiedDateFromResponse:resp],
-                [pair relations],
-                [op response]);
-      };
-      [self processResponse:op
-           successProcessor:successProcessor
-                redirection:redirection
-          conflictProcessor:nil // conflicts are not possible with HTTP GETs
-                clientError:clientErr
-     authenticationRequired:authRequired
-                serverError:serverErr
-           unavailableError:unavailableErr];
-  };
-  AFFailureBlk failureBlk = ^(AFHTTPRequestOperation *op, NSError *err) {
-    connFailure([err code]);
-  };
-  NSURLRequest *request = [self requestWithOpMgr:mgr
-                                      httpMethod:@"GET"
-                                        resource:targetResource
-                                      parameters:nil];
-  DDLogDebug(@"(doGetForTargetResource:) HTTP request: [%@]", request);
-  AFHTTPRequestOperation *operation =
-    [mgr HTTPRequestOperationWithRequest:request
-                                 success:successBlk
-                                 failure:failureBlk];
-  [operation setSecurityPolicy:_afsecurityPolicy];
-  [operation setRedirectResponseBlock:[self newAFRedirectBlkFor301Capture:redirection]];
-  if (completionQueue) { [operation setCompletionQueue:completionQueue]; }
-  if (asynchronous) {
-    [[mgr operationQueue] addOperation:operation];
-  } else {
-    [operation start];
-  }
+  AFHTTPRequestOperationManager *mgr = [self managerForGetWithTargetSerializer:targetSerializer
+                                                               ifModifiedSince:modifiedSince
+                                                                 authorization:authorization
+                                                                       timeout:timeout
+                                                                  otherHeaders:otherHeaders];
+  [self doGetInvokerForURLString:[self urlForResource:targetResource forOpMgr:mgr]
+                requestOpManager:mgr
+                    asynchronous:asynchronous
+                 completionQueue:completionQueue
+                         success:success
+                     redirection:redirection
+                     clientError:clientErr
+          authenticationRequired:authRequired
+                     serverError:serverErr
+                unavailableError:unavailableErr
+               connectionFailure:connFailure];
+}
+
+- (void)doGetForURLString:(NSString *)URLString
+          ifModifiedSince:(NSDate *)modifiedSince
+         targetSerializer:(id<HCResourceSerializer>)targetSerializer
+             asynchronous:(BOOL)asynchronous
+          completionQueue:(dispatch_queue_t)completionQueue
+            authorization:(HCAuthorization *)authorization
+                  success:(HCGETSuccessBlk)success
+              redirection:(HCRedirectionBlk)redirection
+              clientError:(HCClientErrorBlk)clientErr
+   authenticationRequired:(HCAuthReqdErrorBlk)authRequired
+              serverError:(HCServerErrorBlk)serverErr
+         unavailableError:(HCServerUnavailableBlk)unavailableErr
+        connectionFailure:(HCConnFailureBlk)connFailure
+                  timeout:(NSInteger)timeout
+             otherHeaders:(NSDictionary *)otherHeaders {
+  AFHTTPRequestOperationManager *mgr = [self managerForGetWithTargetSerializer:targetSerializer
+                                                               ifModifiedSince:modifiedSince
+                                                                 authorization:authorization
+                                                                       timeout:timeout
+                                                                  otherHeaders:otherHeaders];
+  [self doGetInvokerForURLString:URLString
+                requestOpManager:mgr
+                    asynchronous:asynchronous
+                 completionQueue:completionQueue
+                         success:success
+                     redirection:redirection
+                     clientError:clientErr
+          authenticationRequired:authRequired
+                     serverError:serverErr
+                unavailableError:unavailableErr
+               connectionFailure:connFailure];
 }
 
 - (void)doPostForTargetResource:(HCResource *)targetResource
