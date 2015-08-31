@@ -256,6 +256,7 @@ describe(@"HCRelationExecutor", ^{
                          unavailableError:newServerUnavailableBlk(nil, nil)
                         connectionFailure:newConnFailureBlk(-1)
                                   timeout:60
+                              cachePolicy:NSURLRequestUseProtocolCachePolicy
                              otherHeaders:nil];
       expectedFutureFlags(YES, NO, NO, NO, NO, NO, NO, NO, 60);
     };
@@ -636,6 +637,7 @@ describe(@"HCRelationExecutor", ^{
                     unavailableError:newServerUnavailableBlk(nil, nil)
                    connectionFailure:newConnFailureBlk(-1)
                              timeout:60
+                         cachePolicy:NSURLRequestUseProtocolCachePolicy
                         otherHeaders:nil];
             expectedFutureFlags(NO, NO, NO, YES, NO, NO, NO, NO, 60);
           });
@@ -662,6 +664,7 @@ describe(@"HCRelationExecutor", ^{
                     unavailableError:newServerUnavailableBlk(nil, nil)
                    connectionFailure:newConnFailureBlk(-1)
                              timeout:60
+                         cachePolicy:NSURLRequestUseProtocolCachePolicy
                         otherHeaders:nil];
             expectedFutureFlags(NO, NO, NO, NO, YES, NO, NO, NO, 60);
           });
@@ -686,6 +689,7 @@ describe(@"HCRelationExecutor", ^{
                            unavailableError:newServerUnavailableBlk(nil, nil)
                           connectionFailure:newConnFailureBlk(-1)
                                     timeout:60
+                                cachePolicy:NSURLRequestUseProtocolCachePolicy
                                otherHeaders:nil];
         expectedFutureFlags(NO, NO, NO, NO, YES, NO, NO, NO, 60);
         });
@@ -721,6 +725,7 @@ describe(@"HCRelationExecutor", ^{
                     unavailableError:newServerUnavailableBlk(nil, nil)
                    connectionFailure:newConnFailureBlk(-1)
                              timeout:60
+                         cachePolicy:NSURLRequestUseProtocolCachePolicy
                         otherHeaders:nil];
             /*
              * So this requires some explaining.  301s are special because
@@ -760,6 +765,7 @@ describe(@"HCRelationExecutor", ^{
                     unavailableError:newServerUnavailableBlk(nil, nil)
                    connectionFailure:newConnFailureBlk(-1)
                              timeout:60
+                         cachePolicy:NSURLRequestUseProtocolCachePolicy
                         otherHeaders:nil];
             expectedFutureFlags(NO, YES, NO, NO, NO, NO, NO, NO, 60);
           });
@@ -793,6 +799,7 @@ describe(@"HCRelationExecutor", ^{
                   unavailableError:newServerUnavailableBlk(nil, nil)
                  connectionFailure:newConnFailureBlk(-1)
                            timeout:60
+                       cachePolicy:NSURLRequestUseProtocolCachePolicy
                       otherHeaders:nil];
           expectedFutureFlags(YES, NO, NO, NO, NO, NO, NO, NO, 60);
         });
@@ -821,6 +828,7 @@ describe(@"HCRelationExecutor", ^{
                     unavailableError:newServerUnavailableBlk(nil, [NSNumber numberWithInt:90])
                    connectionFailure:newConnFailureBlk(-1)
                              timeout:60
+                         cachePolicy:NSURLRequestUseProtocolCachePolicy
                         otherHeaders:nil];
             expectedFutureFlags(NO, NO, NO, NO, NO, NO, YES, NO, 60);
           });
@@ -851,6 +859,7 @@ describe(@"HCRelationExecutor", ^{
                     unavailableError:newServerUnavailableBlk(expectedRetryAfter, nil)
                    connectionFailure:newConnFailureBlk(-1)
                              timeout:60
+                         cachePolicy:NSURLRequestUseProtocolCachePolicy
                         otherHeaders:nil];
             expectedFutureFlags(NO, NO, NO, NO, NO, NO, YES, NO, 60);
           });
@@ -876,6 +885,7 @@ describe(@"HCRelationExecutor", ^{
                     unavailableError:newServerUnavailableBlk(nil, nil)
                    connectionFailure:newConnFailureBlk(NSURLErrorTimedOut)
                              timeout:60
+                         cachePolicy:NSURLRequestUseProtocolCachePolicy
                         otherHeaders:nil];
             expectedFutureFlags(NO, NO, NO, NO, NO, NO, NO, YES, 60);
           });
@@ -913,6 +923,7 @@ describe(@"HCRelationExecutor", ^{
                     unavailableError:newServerUnavailableBlk(nil, nil)
                    connectionFailure:newConnFailureBlk(NSURLErrorTimedOut)
                              timeout:5
+                         cachePolicy:NSURLRequestUseProtocolCachePolicy
                         otherHeaders:nil];
             expectedFutureFlags(NO, NO, NO, NO, NO, NO, NO, YES, 60);
           });

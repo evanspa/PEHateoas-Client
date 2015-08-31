@@ -404,6 +404,7 @@ HCConnFailureBlk connFailureBlk = ^(NSInteger nsurlErr) {
                unavailableError:serverUnavailableBlk
               connectionFailure:connFailureBlk
                         timeout:60
+                    cachePolicy:NSURLRequestUseProtocolCachePolicy
                    otherHeaders:@{}];
 ```
 ### POST
@@ -460,7 +461,7 @@ HCAuthorization *authorization = [HCAuthorization authWithScheme:@"fp-auth"
 ## Installation with CocoaPods
 
 ```ruby
-pod 'PEHateoas-Client', '~> 1.0.5'
+pod 'PEHateoas-Client', '~> 1.0.6'
 ```
 
 ## PE* iOS Library Suite

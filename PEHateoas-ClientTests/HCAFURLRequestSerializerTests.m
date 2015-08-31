@@ -47,7 +47,8 @@ body and thus will not require a content-type header and an HC serializer.", ^{
                                         singleAuthParamName:@"p1"
                                              authParamValue:@"v1"]
                     timeout:60
-            otherHeaders:@{@"test-hdr" : @"test-hdr-val"}];
+                cachePolicy:NSURLRequestUseProtocolCachePolicy
+               otherHeaders:@{@"test-hdr" : @"test-hdr-val"}];
          [reqSerializer shouldNotBeNil];
          NSURLRequest *serializedRequest =
            [reqSerializer requestBySerializingRequest:existingRequest
@@ -99,6 +100,7 @@ serializersForEmbeddedResources:@{}
                                                    @"p3" : @"v3"}]
               hcserializer:fakeResSerializer
                    timeout:60
+               cachePolicy:NSURLRequestUseProtocolCachePolicy
               otherHeaders:nil];
         [reqSerializer shouldNotBeNil];
 

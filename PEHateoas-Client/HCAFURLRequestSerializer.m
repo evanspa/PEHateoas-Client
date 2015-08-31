@@ -32,6 +32,7 @@
   id<HCResourceSerializer> _hcserializer;
   NSInteger _timeout;
   NSDictionary *_otherHeaders;
+  NSURLRequestCachePolicy _cachePolicy;
 }
 
 #pragma mark - Initializers
@@ -42,6 +43,7 @@
        authorization:(HCAuthorization *)authorization
         hcserializer:(id<HCResourceSerializer>)hcserializer
              timeout:(NSInteger)timeout
+         cachePolicy:(NSURLRequestCachePolicy)cachePolicy
         otherHeaders:(NSDictionary *)otherHeaders {
   self = [super init];
   if (self) {
@@ -51,6 +53,7 @@
     _authorization = authorization;
     _hcserializer = hcserializer;
     _timeout = timeout;
+    _cachePolicy = cachePolicy;
     _otherHeaders = otherHeaders;
   }
   return self;
@@ -61,6 +64,7 @@
       acceptLanguage:(NSString *)acceptLang
        authorization:(HCAuthorization *)authorization
              timeout:(NSInteger)timeout
+         cachePolicy:(NSURLRequestCachePolicy)cachePolicy
         otherHeaders:(NSDictionary *)otherHeaders {
   return [self initWithAccept:accept
                 acceptCharset:acceptCharset
@@ -68,6 +72,7 @@
                 authorization:authorization
                  hcserializer:nil
                       timeout:timeout
+                  cachePolicy:cachePolicy
                  otherHeaders:otherHeaders];
 }
 
@@ -109,6 +114,7 @@
       }];
   }
   [newRequest setTimeoutInterval:_timeout];
+  [newRequest setCachePolicy:_cachePolicy];
   if (_hcserializer) {
     NSString *contentTypeHdrVal =
       [NSString stringWithFormat:@"%@;charset=%@",

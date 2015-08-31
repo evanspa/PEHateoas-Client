@@ -89,6 +89,7 @@ typedef void (^AFFailureBlk)(AFHTTPRequestOperation *, NSError *);
                                               responseSerializer:(id<HCResourceSerializer>)respSerializer
                                                    authorization:(HCAuthorization *)authorization
                                                          timeout:(NSInteger)timeout
+                                                     cachePolicy:(NSURLRequestCachePolicy)cachePolicy
                                                     otherHeaders:(NSDictionary *)otherHeaders{
   AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
   HCAFURLRequestSerializer *hcReqSerializer;
@@ -100,6 +101,7 @@ typedef void (^AFFailureBlk)(AFHTTPRequestOperation *, NSError *);
                                          authorization:authorization
                                           hcserializer:reqSerializer
                                                timeout:timeout
+                                           cachePolicy:cachePolicy
                                           otherHeaders:otherHeaders];
   } else {
     hcReqSerializer =
@@ -108,6 +110,7 @@ typedef void (^AFFailureBlk)(AFHTTPRequestOperation *, NSError *);
                                         acceptLanguage:_acceptLanguage
                                          authorization:authorization
                                                timeout:timeout
+                                           cachePolicy:cachePolicy
                                           otherHeaders:otherHeaders];
   }
   [mgr setRequestSerializer:hcReqSerializer];
@@ -122,21 +125,25 @@ typedef void (^AFFailureBlk)(AFHTTPRequestOperation *, NSError *);
 - (AFHTTPRequestOperationManager *)reqOpMgrWithResponseSerializer:(id<HCResourceSerializer>)respSerializer
                                                     authorization:(HCAuthorization *)authorization
                                                           timeout:(NSInteger)timeout
+                                                      cachePolicy:(NSURLRequestCachePolicy)cachePolicy
                                                      otherHeaders:(NSDictionary *)otherHeaders {
   return [self reqOpMgrWithRequestSerializer:nil
                           responseSerializer:respSerializer
                                authorization:authorization
                                      timeout:timeout
+                                 cachePolicy:cachePolicy
                                 otherHeaders:otherHeaders];
 }
 
 - (AFHTTPRequestOperationManager *)reqOpMgrWithAuthorization:(HCAuthorization *)authorization
                                                      timeout:(NSInteger)timeout
+                                                 cachePolicy:(NSURLRequestCachePolicy)cachePolicy
                                                 otherHeaders:(NSDictionary *)otherHeaders {
   return [self reqOpMgrWithRequestSerializer:nil
                           responseSerializer:nil
                                authorization:authorization
                                      timeout:timeout
+                                 cachePolicy:cachePolicy
                                 otherHeaders:otherHeaders];
 }
 
@@ -282,6 +289,7 @@ typedef void (^AFFailureBlk)(AFHTTPRequestOperation *, NSError *);
                                                     ifModifiedSince:(NSDate *)modifiedSince
                                                       authorization:(HCAuthorization *)authorization
                                                             timeout:(NSInteger)timeout
+                                                        cachePolicy:(NSURLRequestCachePolicy)cachePolicy
                                                        otherHeaders:(NSDictionary *)otherHeaders {
   AFHTTPRequestOperationManager *mgr;
   if (modifiedSince) {
@@ -292,11 +300,13 @@ typedef void (^AFFailureBlk)(AFHTTPRequestOperation *, NSError *);
     mgr = [self reqOpMgrWithResponseSerializer:targetSerializer
                                  authorization:authorization
                                        timeout:timeout
+                                   cachePolicy:cachePolicy
                                   otherHeaders:otherHeadersMutDict];
   } else {
     mgr = [self reqOpMgrWithResponseSerializer:targetSerializer
                                  authorization:authorization
                                        timeout:timeout
+                                   cachePolicy:cachePolicy
                                   otherHeaders:otherHeaders];
   }
   return mgr;
@@ -365,11 +375,13 @@ typedef void (^AFFailureBlk)(AFHTTPRequestOperation *, NSError *);
               unavailableError:(HCServerUnavailableBlk)unavailableErr
              connectionFailure:(HCConnFailureBlk)connFailure
                        timeout:(NSInteger)timeout
+                   cachePolicy:(NSURLRequestCachePolicy)cachePolicy
                   otherHeaders:(NSDictionary *)otherHeaders {
   AFHTTPRequestOperationManager *mgr = [self managerForGetWithTargetSerializer:targetSerializer
                                                                ifModifiedSince:modifiedSince
                                                                  authorization:authorization
                                                                        timeout:timeout
+                                                                   cachePolicy:cachePolicy
                                                                   otherHeaders:otherHeaders];
   [self doGetInvokerForURLString:[self urlForResource:targetResource forOpMgr:mgr]
                 requestOpManager:mgr
@@ -398,11 +410,13 @@ typedef void (^AFFailureBlk)(AFHTTPRequestOperation *, NSError *);
          unavailableError:(HCServerUnavailableBlk)unavailableErr
         connectionFailure:(HCConnFailureBlk)connFailure
                   timeout:(NSInteger)timeout
+              cachePolicy:(NSURLRequestCachePolicy)cachePolicy
              otherHeaders:(NSDictionary *)otherHeaders {
   AFHTTPRequestOperationManager *mgr = [self managerForGetWithTargetSerializer:targetSerializer
                                                                ifModifiedSince:modifiedSince
                                                                  authorization:authorization
                                                                        timeout:timeout
+                                                                   cachePolicy:cachePolicy
                                                                   otherHeaders:otherHeaders];
   [self doGetInvokerForURLString:URLString
                 requestOpManager:mgr
@@ -438,6 +452,7 @@ typedef void (^AFFailureBlk)(AFHTTPRequestOperation *, NSError *);
                      responseSerializer:responseEntitySerializer
                           authorization:authorization
                                 timeout:timeout
+                            cachePolicy:NSURLRequestUseProtocolCachePolicy
                            otherHeaders:otherHeaders];
   AFSuccessBlk successBlk = ^(AFHTTPRequestOperation *op, id responseObj) {
     void (^successProcessor)(void) = ^{
@@ -547,12 +562,14 @@ typedef void (^AFFailureBlk)(AFHTTPRequestOperation *, NSError *);
                            responseSerializer:targetSerializer
                                 authorization:authorization
                                       timeout:timeout
+                                  cachePolicy:NSURLRequestUseProtocolCachePolicy
                                  otherHeaders:otherHeadersMutDict];
   } else  {
     mgr = [self reqOpMgrWithRequestSerializer:targetSerializer
                            responseSerializer:targetSerializer
                                 authorization:authorization
                                       timeout:timeout
+                                  cachePolicy:NSURLRequestUseProtocolCachePolicy
                                  otherHeaders:otherHeaders];
   }
   AFSuccessBlk successBlk = ^(AFHTTPRequestOperation *op, id responseObj) {
@@ -665,11 +682,13 @@ typedef void (^AFFailureBlk)(AFHTTPRequestOperation *, NSError *);
     mgr = [self reqOpMgrWithResponseSerializer:wouldBeTargetSerializer
                                  authorization:authorization
                                        timeout:timeout
+                                   cachePolicy:NSURLRequestUseProtocolCachePolicy
                                   otherHeaders:otherHeadersMutDict];
   } else  {
     mgr = [self reqOpMgrWithResponseSerializer:wouldBeTargetSerializer
                                  authorization:authorization
                                        timeout:timeout
+                                   cachePolicy:NSURLRequestUseProtocolCachePolicy
                                   otherHeaders:otherHeaders];
   }
   AFSuccessBlk successBlk = ^(AFHTTPRequestOperation *op, id responseObj) {

@@ -254,6 +254,7 @@ typedef void (^HCConnFailureBlk)(NSInteger nsurlErr);
               unavailableError:(HCServerUnavailableBlk)unavailableErr
              connectionFailure:(HCConnFailureBlk)connFailure
                        timeout:(NSInteger)timeout
+                   cachePolicy:(NSURLRequestCachePolicy)cachePolicy
                   otherHeaders:(NSDictionary *)otherHeaders;
 
 - (void)doGetForURLString:(NSString *)URLString
@@ -270,6 +271,7 @@ typedef void (^HCConnFailureBlk)(NSInteger nsurlErr);
          unavailableError:(HCServerUnavailableBlk)unavailableErr
         connectionFailure:(HCConnFailureBlk)connFailure
                   timeout:(NSInteger)timeout
+              cachePolicy:(NSURLRequestCachePolicy)cachePolicy
              otherHeaders:(NSDictionary *)otherHeaders;
 
 /**

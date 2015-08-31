@@ -45,6 +45,7 @@
  @param hcserializer the serializer to use to serialize a resource model when
         issuing the HTTP POST or PUT.
  @param timeout The amount of time in seconds to wait for the request to
+ @param cachePolicy The cache policy to use for requests.
  @param otherHeaders Additional headers to include in the request.
  complete.
  @return an AFNetworking-compliant request serializer appropriate for HTTP POST
@@ -56,6 +57,7 @@
        authorization:(HCAuthorization *)authorization
         hcserializer:(id<HCResourceSerializer>)hcserializer
              timeout:(NSInteger)timeout
+         cachePolicy:(NSURLRequestCachePolicy)cachePolicy
         otherHeaders:(NSDictionary *)otherHeaders;
 
 /**
@@ -66,6 +68,7 @@
  @param acceptLang the language to use for the Accept-Language header
  @param timeout The amount of time in seconds to wait for the request to
  complete.
+ @param cachePolicy The cache policy to use for requests.
  @param otherHeaders Additional headers to include in the request.
  @return an AFNetworking-compliant request serializer appropriate for HTTP GET
  HEAD, etc requests.
@@ -75,6 +78,7 @@
       acceptLanguage:(NSString *)acceptLang
        authorization:(HCAuthorization *)authorization
              timeout:(NSInteger)timeout
+         cachePolicy:(NSURLRequestCachePolicy)cachePolicy
         otherHeaders:(NSDictionary *)otherHeaders;
 
 @end
