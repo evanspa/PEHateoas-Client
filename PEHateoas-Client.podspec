@@ -1,12 +1,12 @@
 Pod::Spec.new do |s|
   s.name         = "PEHateoas-Client"
-  s.version      = "1.0.7"
+  s.version      = "1.0.8"
   s.license      = "MIT"
   s.summary      = "An iOS library simplifying the consumption of hypermedia REST APIs."
   s.author       = { "Paul Evans" => "evansp2@gmail.com" }
   s.homepage     = "https://github.com/evanspa/#{s.name}"
   s.source       = { :git => "https://github.com/evanspa/#{s.name}.git", :tag => "#{s.name}-v#{s.version}" }
-  s.platform     = :ios, '8.3'
+  s.platform     = :ios, '8.4'
   s.source_files = '**/*.{h,m}'
   s.public_header_files = '**/*.h'
   s.exclude_files = "**/*Tests/*.*"
