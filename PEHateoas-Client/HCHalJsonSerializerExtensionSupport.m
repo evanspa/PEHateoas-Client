@@ -40,7 +40,7 @@
                               mediaType:mediaType
                                location:location
                            lastModified:lastModified];
-    id embeddedResources = [resourceJsonObj objectForKey:FPEmbeddedResource];
+    id embeddedResources = [resourceJsonObj objectForKey:HCEmbeddedResource];
     if (embeddedResources) {
       for (NSDictionary *embeddedRes in embeddedResources) {
         NSString *mediaType = [embeddedRes objectForKey:HCEmbeddedResourceMediaTypeKey];

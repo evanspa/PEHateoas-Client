@@ -28,7 +28,7 @@ FOUNDATION_EXPORT NSString * const HCEmbeddedResourceMediaTypeKey;
 FOUNDATION_EXPORT NSString * const HCEmbeddedResourceLocationKey;
 FOUNDATION_EXPORT NSString * const HCEmbeddedResourceLastModifiedKey;
 FOUNDATION_EXPORT NSString * const HCEmbeddedResourcePayloadKey;
-FOUNDATION_EXPORT NSString * const FPEmbeddedResource;
+FOUNDATION_EXPORT NSString * const HCEmbeddedResource;
 
 /**
  Only knows how to deserialize a JSON-formatted resource for the purpose of

@@ -29,7 +29,7 @@ NSString * const HCEmbeddedResourceMediaTypeKey = @"media-type";
 NSString * const HCEmbeddedResourceLocationKey = @"location";
 NSString * const HCEmbeddedResourceLastModifiedKey = @"last-modified";
 NSString * const HCEmbeddedResourcePayloadKey = @"payload";
-NSString * const FPEmbeddedResource = @"_embedded";
+NSString * const HCEmbeddedResource = @"_embedded";
 
 @implementation HCHalJsonSerializer
 

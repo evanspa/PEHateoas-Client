@@ -1,3 +1,3 @@
 #!/bin/bash
 
-pod trunk push .
+pod --allow-warnings trunk push .

@@ -22,7 +22,7 @@
 // THE SOFTWARE.
 
 #import "HCMediaType.h"
-#import <PEObjc-Commons/PEUtils.h>
+#import "PEUtils.h"
 
 @implementation HCMediaType
 
