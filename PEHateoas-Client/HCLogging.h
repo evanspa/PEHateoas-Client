@@ -21,6 +21,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <CocoaLumberjack/DDLog.h>
+#import "DDLog.h"
 
 FOUNDATION_EXPORT const int ddLogLevel;
