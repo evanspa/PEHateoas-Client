@@ -23,6 +23,7 @@
 
 @import Foundation;
 #import "AFURLResponseSerialization.h"
+
 #import "HCResourceSerializer.h"
 
 /**
