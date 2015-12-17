@@ -11,8 +11,8 @@ Pod::Spec.new do |s|
   s.public_header_files = '**/*.h'
   s.exclude_files = "**/*Tests/*.*"
   s.requires_arc = true
+  s.pod_target_xcconfig = {'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES'}
   s.dependency 'AFNetworking', '~> 2.6.3'
   s.dependency 'PEObjc-Commons', '~> 1.0.101'
   s.dependency 'CocoaLumberjack', '~> 1.9'
-  s.pod_target_config = {'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES'}
 end
