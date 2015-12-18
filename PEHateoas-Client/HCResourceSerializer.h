@@ -26,8 +26,6 @@
 @class HCMediaType;
 @class HCCharset;
 
-typedef void (^HCActionForEmbeddedResource)(id resourceModel, id embeddedResourceModel);
-
 /**
  An abstraction for serializing and deserializing HTTP request and responses.
  This abstraction sits slighly above AFNetworking's URL request (and response)

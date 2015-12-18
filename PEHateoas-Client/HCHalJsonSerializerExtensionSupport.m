@@ -26,6 +26,7 @@
 #import "HCDeserializedPair.h"
 #import "HCMediaType.h"
 #import "HCCharset.h"
+#import "HCDefs.h"
 
 @implementation HCHalJsonSerializerExtensionSupport
 

@@ -30,6 +30,7 @@
 #import "HCMediaType.h"
 #import "HCCharset.h"
 #import "HCDeserializedPair.h"
+#import "HCDefs.h"
 #import <Kiwi/Kiwi.h>
 
 SPEC_BEGIN(HCHalJsonSerializerExtensionSupportSpec)

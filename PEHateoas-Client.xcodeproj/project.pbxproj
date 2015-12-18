@@ -145,6 +145,7 @@
 		77FB6D190AD0FE087AA667C3 /* Pods-PEHateoas-ClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PEHateoas-ClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PEHateoas-ClientTests/Pods-PEHateoas-ClientTests.release.xcconfig"; sourceTree = "<group>"; };
 		9B26CE8402536107D866ED3F /* libPods-PEHateoas-ClientTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PEHateoas-ClientTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB53FF855470C70EF6769DEF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		CA37CF521C244D84002F09A6 /* HCDefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HCDefs.h; sourceTree = "<group>"; };
 		CA4054F01B65D6F900F9D221 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		CA47B7101B65D87B00DB055B /* PEHateoas-ClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PEHateoas-ClientTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA47B7321B65D9CC00DB055B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -194,6 +195,7 @@
 		188354A01A7C973600C87586 /* PEHateoas-Client */ = {
 			isa = PBXGroup;
 			children = (
+				CA37CF511C244D78002F09A6 /* Typedefs */,
 				188354BC1A7C986D00C87586 /* Categories */,
 				188354BB1A7C986500C87586 /* Utils */,
 				188354BA1A7C985F00C87586 /* Model */,
@@ -658,6 +660,14 @@
 				77FB6D190AD0FE087AA667C3 /* Pods-PEHateoas-ClientTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		CA37CF511C244D78002F09A6 /* Typedefs */ = {
+			isa = PBXGroup;
+			children = (
+				CA37CF521C244D84002F09A6 /* HCDefs.h */,
+			);
+			name = Typedefs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
