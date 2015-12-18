@@ -22,6 +22,7 @@
 // THE SOFTWARE.
 
 #import "HCRelation.h"
+#import "HCResource.h"
 
 @implementation HCRelation {
   NSString *_name;

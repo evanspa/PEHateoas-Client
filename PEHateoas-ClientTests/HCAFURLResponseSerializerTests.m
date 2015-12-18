@@ -24,6 +24,10 @@
 #import "HCAFURLResponseSerializer.h"
 #import "HCFakeResourceSerializer.h"
 #import "HCRelation.h"
+#import "HCCharset.h"
+#import "HCMediaType.h"
+#import "HCResource.h"
+#import "HCDeserializedPair.h"
 #import <Kiwi/Kiwi.h>
 
 SPEC_BEGIN(HCAFURLResponseSerializerSpec)

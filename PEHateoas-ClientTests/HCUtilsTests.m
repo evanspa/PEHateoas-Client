@@ -23,6 +23,7 @@
 
 #import "HCUtils.h"
 #import "HCTestUtils.h"
+#import "HCMediaType.h"
 #import <Kiwi/Kiwi.h>
 
 SPEC_BEGIN(HCUtilsSpec)

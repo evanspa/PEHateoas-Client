@@ -24,6 +24,10 @@
 #import "HCHalJsonSerializer.h"
 #import "HCRelation.h"
 #import "HCUtils.h"
+#import "HCDeserializedPair.h"
+#import "HCMediaType.h"
+#import "HCCharset.h"
+#import "HCResource.h"
 
 NSString * const HCEmbeddedResourceMediaTypeKey = @"media-type";
 NSString * const HCEmbeddedResourceLocationKey = @"location";

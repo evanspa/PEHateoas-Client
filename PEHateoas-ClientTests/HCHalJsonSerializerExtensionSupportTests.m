@@ -27,6 +27,9 @@
 #import "DummyCar.h"
 #import "DummyCarDoor.h"
 #import "HCUtils.h"
+#import "HCMediaType.h"
+#import "HCCharset.h"
+#import "HCDeserializedPair.h"
 #import <Kiwi/Kiwi.h>
 
 SPEC_BEGIN(HCHalJsonSerializerExtensionSupportSpec)

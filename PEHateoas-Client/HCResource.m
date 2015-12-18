@@ -23,6 +23,7 @@
 
 #import "HCResource.h"
 #import "NSURL+HCAdditions.h"
+#import "HCMediaType.h"
 
 @implementation HCResource {
   HCMediaType *_mediaType;

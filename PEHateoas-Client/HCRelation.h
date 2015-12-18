@@ -22,7 +22,7 @@
 // THE SOFTWARE.
 
 @import Foundation;
-#import "HCResource.h"
+@class HCResource;
 
 /**
  An abstraction for modeling a hyperlink relation.  A link relation

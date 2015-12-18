@@ -23,6 +23,8 @@
 
 #import "HCAFURLResponseSerializer.h"
 #import "HCLogging.h"
+#import "HCMediaType.h"
+#import "HCResourceSerializer.h"
 
 @implementation HCAFURLResponseSerializer {
   id<HCResourceSerializer> _hcserializer;

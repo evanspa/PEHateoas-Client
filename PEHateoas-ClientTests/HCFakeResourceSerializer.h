@@ -23,7 +23,7 @@
 
 @import Foundation;
 #import "HCResourceSerializerSupport.h"
-#import "HCDeserializedPair.h"
+@class HCDeserializedPair;
 
 /**
  Implementation of HCResourceSerializer for use in unit testing (e.g., use

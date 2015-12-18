@@ -23,7 +23,8 @@
 
 @import Foundation;
 #import <AFNetworking/AFURLResponseSerialization.h>
-#import "HCResourceSerializer.h"
+
+@protocol HCResourceSerializer;
 
 /**
  An implementation of AFNetworking's response serializer that would leverage an

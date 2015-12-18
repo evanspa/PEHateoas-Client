@@ -22,11 +22,12 @@
 // THE SOFTWARE.
 
 @import Foundation;
-#import "HCResourceSerializer.h"
-#import "HCAuthorization.h"
-#import "HCAuthentication.h"
-#import "HCResource.h"
-#import "HCMediaType.h"
+@protocol HCResourceSerializer;
+@class HCCharset;
+@class HCAuthorization;
+@class HCAuthentication;
+@class HCResource;
+@class HCMediaType;
 
 FOUNDATION_EXPORT NSString * const HTTP_DATE_FORMAT;
 

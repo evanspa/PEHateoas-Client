@@ -22,6 +22,8 @@
 // THE SOFTWARE.
 
 #import "HCResourceSerializerSupport.h"
+#import "HCMediaType.h"
+#import "HCCharset.h"
 #import <Kiwi/Kiwi.h>
 
 SPEC_BEGIN(HCResourceSerializerSupportSpec)

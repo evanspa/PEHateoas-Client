@@ -23,6 +23,9 @@
 
 #import "HCHalJsonSerializerExtensionSupport.h"
 #import "HCUtils.h"
+#import "HCDeserializedPair.h"
+#import "HCMediaType.h"
+#import "HCCharset.h"
 
 @implementation HCHalJsonSerializerExtensionSupport
 

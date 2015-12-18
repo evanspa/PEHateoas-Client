@@ -22,7 +22,7 @@
 // THE SOFTWARE.
 
 @import Foundation;
-#import "HCMediaType.h"
+@class HCMediaType;
 
 /**
  HTTP-date format as defined in RFC 7231.

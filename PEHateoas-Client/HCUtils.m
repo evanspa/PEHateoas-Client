@@ -25,6 +25,9 @@
 #import "HCHalJsonSerializer.h"
 #import "HCResource.h"
 #import "PEUtils.h"
+#import "HCCharset.h"
+#import "HCDeserializedPair.h"
+#import "HCMediaType.h"
 
 NSString * const HTTP_DATE_FORMAT_PATTERN = @"EEE, dd MMM yyyy HH:mm:ss z";
 

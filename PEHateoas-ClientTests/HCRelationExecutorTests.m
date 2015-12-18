@@ -24,11 +24,15 @@
 #import "HCRelationExecutor.h"
 #import "HCHalJsonSerializer.h"
 #import <PEWire-Control/PEHttpResponseSimulator.h>
-#import <Kiwi/Kiwi.h>
 #import "HCTestUtils.h"
 #import <CocoaLumberjack/DDLog.h>
 #import <CocoaLumberjack/DDTTYLogger.h>
 #import <CocoaLumberjack/DDASLLogger.h>
+#import "HCCharset.h"
+#import "HCResource.h"
+#import "HCAuthentication.h"
+#import "HCMediaType.h"
+#import <Kiwi/Kiwi.h>
 
 SPEC_BEGIN(HCRelationExecutorSpec)
 

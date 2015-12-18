@@ -29,6 +29,11 @@
 #import "NSURLRequest+HCAdditions.h"
 #import "HCLogging.h"
 #import "HCUtils.h"
+#import "HCDeserializedPair.h"
+#import "HCResource.h"
+#import "HCAuthentication.h"
+#import "HCMediaType.h"
+#import "HCResourceSerializer.h"
 
 NSString * const HTTP_DATE_FORMAT = @"EEE',' dd MMM yyyy HH':'mm':'ss z";
 

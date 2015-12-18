@@ -22,6 +22,8 @@
 // THE SOFTWARE.
 
 #import "HCTestUtils.h"
+#import "HCResource.h"
+#import "HCMediaType.h"
 #import <PEObjc-Commons/PEUtils.h>
 
 @implementation HCTestUtils

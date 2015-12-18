@@ -23,6 +23,8 @@
 
 #import "HCDeserializedPair.h"
 #import "HCRelation.h"
+#import "HCMediaType.h"
+#import "HCResource.h"
 #import <Kiwi/Kiwi.h>
 
 SPEC_BEGIN(HCDeserializedPairSpec)

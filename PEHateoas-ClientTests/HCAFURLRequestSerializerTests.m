@@ -24,6 +24,8 @@
 #import "HCAFURLRequestSerializer.h"
 #import "HCFakeResourceSerializer.h"
 #import "HCAuthorization.h"
+#import "HCMediaType.h"
+#import "HCCharset.h"
 #import <Kiwi/Kiwi.h>
 
 SPEC_BEGIN(HCAFURLRequestSerializerSpec)

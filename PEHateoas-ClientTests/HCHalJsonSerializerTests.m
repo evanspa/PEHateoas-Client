@@ -24,6 +24,9 @@
 #import "HCHalJsonSerializer.h"
 #import "HCRelation.h"
 #import "HCTestUtils.h"
+#import "HCMediaType.h"
+#import "HCCharset.h"
+#import "HCDeserializedPair.h"
 #import <PEObjc-Commons/PEUtils.h>
 #import <Kiwi/Kiwi.h>
 

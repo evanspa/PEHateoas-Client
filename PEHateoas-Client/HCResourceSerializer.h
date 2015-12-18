@@ -22,9 +22,9 @@
 // THE SOFTWARE.
 
 @import Foundation;
-#import "HCDeserializedPair.h"
-#import "HCMediaType.h"
-#import "HCCharset.h"
+@class HCDeserializedPair;
+@class HCMediaType;
+@class HCCharset;
 
 typedef void (^HCActionForEmbeddedResource)(id resourceModel, id embeddedResourceModel);
 

@@ -22,7 +22,7 @@
 // THE SOFTWARE.
 
 @import Foundation;
-#import "HCMediaType.h"
+@class HCMediaType;
 
 /**
  Abstraction for an HTTP resource.
