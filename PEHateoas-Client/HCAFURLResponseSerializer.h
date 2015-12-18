@@ -22,8 +22,7 @@
 // THE SOFTWARE.
 
 @import Foundation;
-#import "AFURLResponseSerialization.h"
-
+#import <AFNetworking/AFURLResponseSerialization.h>
 #import "HCResourceSerializer.h"
 
 /**

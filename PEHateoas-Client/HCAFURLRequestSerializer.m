@@ -23,6 +23,10 @@
 
 #import "HCAFURLRequestSerializer.h"
 #import "HCLogging.h"
+#import "HCMediaType.h"
+#import "HCCharset.h"
+#import "HCAuthorization.h"
+#import "HCResourceSerializer.h"
 
 @implementation HCAFURLRequestSerializer {
   HCMediaType *_accept;

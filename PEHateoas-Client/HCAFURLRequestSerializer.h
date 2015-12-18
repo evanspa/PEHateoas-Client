@@ -22,10 +22,12 @@
 // THE SOFTWARE.
 
 @import Foundation;
-#import "AFURLRequestSerialization.h"
-#import "HCAuthorization.h"
-#import "HCMediaType.h"
-#import "HCResourceSerializer.h"
+#import <AFNetworking/AFURLRequestSerialization.h>
+
+@class HCAuthorization;
+@class HCCharset;
+@class HCMediaType;
+@protocol HCResourceSerializer;
 
 /**
  An implementation of AFNetworking's request serializer that would leverage an
