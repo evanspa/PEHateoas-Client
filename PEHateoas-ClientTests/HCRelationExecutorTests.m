@@ -247,6 +247,7 @@ describe(@"HCRelationExecutor", ^{
                  requestLatency:0
                 responseLatency:0];
       [relExecutor doGetForTargetResource:targetRes
+                               parameters:nil
                           ifModifiedSince:nil
                          targetSerializer:jsonSerializer
                              asynchronous:YES
@@ -621,55 +622,53 @@ describe(@"HCRelationExecutor", ^{
     context(@"4XX responses", ^{
         it(@"GET works when receiving a 404 not-found response", ^{
             NSString *path = @"/users/xxx9201";
-            [PEHttpResponseSimulator
-              simulateResponseFromXml:contentsOfMockResponse(@"http-response.404")
-                pathsRelativeToBundle:[NSBundle bundleForClass:[self class]]
-                       requestLatency:0
-                      responseLatency:0];
-            [relExecutor
-              doGetForTargetResource:[[HCResource alloc] initWithMediaType:mediaType uri:url(path)]
-                     ifModifiedSince:nil
-                    targetSerializer:jsonSerializer
-                        asynchronous:YES
-                     completionQueue:nil
-                       authorization:nil
-                             success:newEmptyGetSuccessBlk()
-                         redirection:newRedirectBlk(nil, NO, NO)
-                         clientError:newClientErrorBlk(404)
-              authenticationRequired:nil
-                         serverError:newServerErrorBlk(-1)
-                    unavailableError:newServerUnavailableBlk(nil, nil)
-                   connectionFailure:newConnFailureBlk(-1)
-                             timeout:60
-                         cachePolicy:NSURLRequestUseProtocolCachePolicy
-                        otherHeaders:nil];
+          [PEHttpResponseSimulator simulateResponseFromXml:contentsOfMockResponse(@"http-response.404")
+                                     pathsRelativeToBundle:[NSBundle bundleForClass:[self class]]
+                                            requestLatency:0
+                                           responseLatency:0];
+          [relExecutor doGetForTargetResource:[[HCResource alloc] initWithMediaType:mediaType uri:url(path)]
+                                   parameters:nil
+                              ifModifiedSince:nil
+                             targetSerializer:jsonSerializer
+                                 asynchronous:YES
+                              completionQueue:nil
+                                authorization:nil
+                                      success:newEmptyGetSuccessBlk()
+                                  redirection:newRedirectBlk(nil, NO, NO)
+                                  clientError:newClientErrorBlk(404)
+                       authenticationRequired:nil
+                                  serverError:newServerErrorBlk(-1)
+                             unavailableError:newServerUnavailableBlk(nil, nil)
+                            connectionFailure:newConnFailureBlk(-1)
+                                      timeout:60
+                                  cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                 otherHeaders:nil];
             expectedFutureFlags(NO, NO, NO, YES, NO, NO, NO, NO, 60);
           });
 
         it(@"401 response works", ^{
             NSString *path = @"/users/xxx9201";
-            [PEHttpResponseSimulator
-              simulateResponseFromXml:contentsOfMockResponse(@"http-response.401")
-                pathsRelativeToBundle:[NSBundle bundleForClass:[self class]]
-                       requestLatency:0
-                      responseLatency:0];
-            [relExecutor
-              doGetForTargetResource:[[HCResource alloc] initWithMediaType:mediaType uri:url(path)]
-                     ifModifiedSince:nil
-                    targetSerializer:jsonSerializer
-                        asynchronous:YES
-                     completionQueue:nil
-                       authorization:nil
-                             success:nil
-                         redirection:newRedirectBlk(nil, NO, NO)
-                         clientError:newClientErrorBlk(404)
-              authenticationRequired:newAuthReqdBlk(@"FPAuthToken", @"all", nil)
-                         serverError:newServerErrorBlk(-1)
-                    unavailableError:newServerUnavailableBlk(nil, nil)
-                   connectionFailure:newConnFailureBlk(-1)
-                             timeout:60
-                         cachePolicy:NSURLRequestUseProtocolCachePolicy
-                        otherHeaders:nil];
+          [PEHttpResponseSimulator simulateResponseFromXml:contentsOfMockResponse(@"http-response.401")
+                                     pathsRelativeToBundle:[NSBundle bundleForClass:[self class]]
+                                            requestLatency:0
+                                           responseLatency:0];
+          [relExecutor doGetForTargetResource:[[HCResource alloc] initWithMediaType:mediaType uri:url(path)]
+                                   parameters:nil
+                              ifModifiedSince:nil
+                             targetSerializer:jsonSerializer
+                                 asynchronous:YES
+                              completionQueue:nil
+                                authorization:nil
+                                      success:nil
+                                  redirection:newRedirectBlk(nil, NO, NO)
+                                  clientError:newClientErrorBlk(404)
+                       authenticationRequired:newAuthReqdBlk(@"FPAuthToken", @"all", nil)
+                                  serverError:newServerErrorBlk(-1)
+                             unavailableError:newServerUnavailableBlk(nil, nil)
+                            connectionFailure:newConnFailureBlk(-1)
+                                      timeout:60
+                                  cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                 otherHeaders:nil];
             expectedFutureFlags(NO, NO, NO, NO, YES, NO, NO, NO, 60);
           });
 
@@ -680,6 +679,7 @@ describe(@"HCRelationExecutor", ^{
                                           requestLatency:0
                                          responseLatency:0];
         [relExecutor doGetForTargetResource:[[HCResource alloc] initWithMediaType:mediaType uri:url(path)]
+                                 parameters:nil
                             ifModifiedSince:nil
                            targetSerializer:jsonSerializer
                                asynchronous:YES
@@ -709,28 +709,27 @@ describe(@"HCRelationExecutor", ^{
                       responseLatency:0];
             // afnetworking will automatically follow the redirect, so we need
             // to make sure we've simulated the redirect's target resource
-            [PEHttpResponseSimulator
-              simulateResponseFromXml:contentsOfMockResponse(@"http-response.200")
-                pathsRelativeToBundle:[NSBundle bundleForClass:[self class]]
-                       requestLatency:0
-                      responseLatency:0];
-            [relExecutor
-              doGetForTargetResource:[[HCResource alloc] initWithMediaType:mediaType uri:url(path)]
-                     ifModifiedSince:nil
-                    targetSerializer:jsonSerializer
-                        asynchronous:YES
-                     completionQueue:nil
-                       authorization:nil
-                             success:newEmptyGetSuccessBlk()
-                         redirection:newRedirectBlk(url(@"/users/u10391"), YES, NO)
-                         clientError:newClientErrorBlk(-1)
-              authenticationRequired:nil
-                         serverError:newServerErrorBlk(-1)
-                    unavailableError:newServerUnavailableBlk(nil, nil)
-                   connectionFailure:newConnFailureBlk(-1)
-                             timeout:60
-                         cachePolicy:NSURLRequestUseProtocolCachePolicy
-                        otherHeaders:nil];
+          [PEHttpResponseSimulator simulateResponseFromXml:contentsOfMockResponse(@"http-response.200")
+                                     pathsRelativeToBundle:[NSBundle bundleForClass:[self class]]
+                                            requestLatency:0
+                                           responseLatency:0];
+          [relExecutor doGetForTargetResource:[[HCResource alloc] initWithMediaType:mediaType uri:url(path)]
+                                   parameters:nil
+                              ifModifiedSince:nil
+                             targetSerializer:jsonSerializer
+                                 asynchronous:YES
+                              completionQueue:nil
+                                authorization:nil
+                                      success:newEmptyGetSuccessBlk()
+                                  redirection:newRedirectBlk(url(@"/users/u10391"), YES, NO)
+                                  clientError:newClientErrorBlk(-1)
+                       authenticationRequired:nil
+                                  serverError:newServerErrorBlk(-1)
+                             unavailableError:newServerUnavailableBlk(nil, nil)
+                            connectionFailure:newConnFailureBlk(-1)
+                                      timeout:60
+                                  cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                 otherHeaders:nil];
             /*
              * So this requires some explaining.  301s are special because
              * although it's a redirect, because it's a PERMANENT redirect, we'd
@@ -749,28 +748,27 @@ describe(@"HCRelationExecutor", ^{
 
         it(@"GET works when receiving 304 response", ^{
             NSString *path = @"/users/u10391";
-            [PEHttpResponseSimulator
-              simulateResponseFromXml:contentsOfMockResponse(@"http-response.304")
-                pathsRelativeToBundle:[NSBundle bundleForClass:[self class]]
-                       requestLatency:0
-                      responseLatency:0];
-            [relExecutor
-              doGetForTargetResource:[[HCResource alloc] initWithMediaType:mediaType uri:url(path)]
-                     ifModifiedSince:nil
-                    targetSerializer:jsonSerializer
-                        asynchronous:YES
-                     completionQueue:nil
-                       authorization:nil
-                             success:newEmptyGetSuccessBlk()
-                         redirection:newRedirectBlk(nil, NO, YES)
-                         clientError:newClientErrorBlk(-1)
-              authenticationRequired:nil
-                         serverError:newServerErrorBlk(-1)
-                    unavailableError:newServerUnavailableBlk(nil, nil)
-                   connectionFailure:newConnFailureBlk(-1)
-                             timeout:60
-                         cachePolicy:NSURLRequestUseProtocolCachePolicy
-                        otherHeaders:nil];
+          [PEHttpResponseSimulator simulateResponseFromXml:contentsOfMockResponse(@"http-response.304")
+                                     pathsRelativeToBundle:[NSBundle bundleForClass:[self class]]
+                                            requestLatency:0
+                                           responseLatency:0];
+          [relExecutor doGetForTargetResource:[[HCResource alloc] initWithMediaType:mediaType uri:url(path)]
+                                   parameters:nil
+                              ifModifiedSince:nil
+                             targetSerializer:jsonSerializer
+                                 asynchronous:YES
+                              completionQueue:nil
+                                authorization:nil
+                                      success:newEmptyGetSuccessBlk()
+                                  redirection:newRedirectBlk(nil, NO, YES)
+                                  clientError:newClientErrorBlk(-1)
+                       authenticationRequired:nil
+                                  serverError:newServerErrorBlk(-1)
+                             unavailableError:newServerUnavailableBlk(nil, nil)
+                            connectionFailure:newConnFailureBlk(-1)
+                                      timeout:60
+                                  cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                 otherHeaders:nil];
             expectedFutureFlags(NO, YES, NO, NO, NO, NO, NO, NO, 60);
           });
 
@@ -783,89 +781,84 @@ describe(@"HCRelationExecutor", ^{
                     responseLatency:0];
           // afnetworking will automatically follow the redirect, so we need
           // to make sure we've simulated the redirect's target resource
-          [PEHttpResponseSimulator
-            simulateResponseFromXml:contentsOfMockResponse(@"http-response.200")
-              pathsRelativeToBundle:[NSBundle bundleForClass:[self class]]
-                     requestLatency:0
-                    responseLatency:0];
-          [relExecutor
-            doGetForTargetResource:[[HCResource alloc] initWithMediaType:mediaType uri:url(path)]
-                   ifModifiedSince:nil
-                  targetSerializer:jsonSerializer
-                      asynchronous:YES
-                   completionQueue:nil
-                     authorization:nil
-                           success:newEmptyGetSuccessBlk()
-                       redirection:newRedirectBlk(nil, NO, NO)
-                       clientError:newClientErrorBlk(-1)
-            authenticationRequired:nil
-                       serverError:newServerErrorBlk(-1)
-                  unavailableError:newServerUnavailableBlk(nil, nil)
-                 connectionFailure:newConnFailureBlk(-1)
-                           timeout:60
-                       cachePolicy:NSURLRequestUseProtocolCachePolicy
-                      otherHeaders:nil];
-          expectedFutureFlags(YES, NO, NO, NO, NO, NO, NO, NO, 60);
+        [PEHttpResponseSimulator simulateResponseFromXml:contentsOfMockResponse(@"http-response.200")
+                                   pathsRelativeToBundle:[NSBundle bundleForClass:[self class]]
+                                          requestLatency:0
+                                         responseLatency:0];
+        [relExecutor doGetForTargetResource:[[HCResource alloc] initWithMediaType:mediaType uri:url(path)]
+                                 parameters:nil
+                            ifModifiedSince:nil
+                           targetSerializer:jsonSerializer
+                               asynchronous:YES
+                            completionQueue:nil
+                              authorization:nil
+                                    success:newEmptyGetSuccessBlk()
+                                redirection:newRedirectBlk(nil, NO, NO)
+                                clientError:newClientErrorBlk(-1)
+                     authenticationRequired:nil
+                                serverError:newServerErrorBlk(-1)
+                           unavailableError:newServerUnavailableBlk(nil, nil)
+                          connectionFailure:newConnFailureBlk(-1)
+                                    timeout:60
+                                cachePolicy:NSURLRequestUseProtocolCachePolicy
+                               otherHeaders:nil];
+        expectedFutureFlags(YES, NO, NO, NO, NO, NO, NO, NO, 60);
         });
       });
 
     context(@"Server Unavailable (503", ^{
         it(@"Works in the event of a 503 with an integer for the retry-after.", ^{
             NSString *path = @"/users/u10391";
-            [PEHttpResponseSimulator
-              simulateResponseFromXml:contentsOfMockResponse(@"http-response.503.0")
-                pathsRelativeToBundle:[NSBundle bundleForClass:[self class]]
-                       requestLatency:0
-                      responseLatency:0];
-            [relExecutor
-              doGetForTargetResource:[[HCResource alloc] initWithMediaType:mediaType uri:url(path)]
-                     ifModifiedSince:nil
-                    targetSerializer:jsonSerializer
-                        asynchronous:YES
-                     completionQueue:nil
-                       authorization:nil
-                             success:newEmptyGetSuccessBlk()
-                         redirection:newRedirectBlk(nil, NO, NO)
-                         clientError:newClientErrorBlk(404)
-              authenticationRequired:nil
-                         serverError:newServerErrorBlk(-1)
-                    unavailableError:newServerUnavailableBlk(nil, [NSNumber numberWithInt:90])
-                   connectionFailure:newConnFailureBlk(-1)
-                             timeout:60
-                         cachePolicy:NSURLRequestUseProtocolCachePolicy
-                        otherHeaders:nil];
+          [PEHttpResponseSimulator simulateResponseFromXml:contentsOfMockResponse(@"http-response.503.0")
+                                     pathsRelativeToBundle:[NSBundle bundleForClass:[self class]]
+                                            requestLatency:0
+                                           responseLatency:0];
+          [relExecutor doGetForTargetResource:[[HCResource alloc] initWithMediaType:mediaType uri:url(path)]
+                                   parameters:nil
+                              ifModifiedSince:nil
+                             targetSerializer:jsonSerializer
+                                 asynchronous:YES
+                              completionQueue:nil
+                                authorization:nil
+                                      success:newEmptyGetSuccessBlk()
+                                  redirection:newRedirectBlk(nil, NO, NO)
+                                  clientError:newClientErrorBlk(404)
+                       authenticationRequired:nil
+                                  serverError:newServerErrorBlk(-1)
+                             unavailableError:newServerUnavailableBlk(nil, [NSNumber numberWithInt:90])
+                            connectionFailure:newConnFailureBlk(-1)
+                                      timeout:60
+                                  cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                 otherHeaders:nil];
             expectedFutureFlags(NO, NO, NO, NO, NO, NO, YES, NO, 60);
           });
 
         it(@"Works in the event of a 503 with a date for the retry-after.", ^{
             NSString *path = @"/users/u10391";
-            [PEHttpResponseSimulator
-              simulateResponseFromXml:contentsOfMockResponse(@"http-response.503.1")
-                pathsRelativeToBundle:[NSBundle bundleForClass:[self class]]
-                       requestLatency:0
-                      responseLatency:0];
-            NSDate *expectedRetryAfter =
-              [[HCRelationExecutor
-                 dateFormatterWithPattern:@"EEE',' dd MMM yyyy HH':'mm':'ss z"]
-                   dateFromString:@"Fri, 04 Nov 2014 23:59:59 GMT"];
-            [relExecutor
-              doGetForTargetResource:[[HCResource alloc] initWithMediaType:mediaType uri:url(path)]
-                     ifModifiedSince:nil
-                    targetSerializer:jsonSerializer
-                        asynchronous:YES
-                     completionQueue:nil
-                       authorization:nil
-                             success:newEmptyGetSuccessBlk()
-                         redirection:newRedirectBlk(nil, NO, NO)
-                         clientError:newClientErrorBlk(404)
-              authenticationRequired:nil
-                         serverError:newServerErrorBlk(-1)
-                    unavailableError:newServerUnavailableBlk(expectedRetryAfter, nil)
-                   connectionFailure:newConnFailureBlk(-1)
-                             timeout:60
-                         cachePolicy:NSURLRequestUseProtocolCachePolicy
-                        otherHeaders:nil];
-            expectedFutureFlags(NO, NO, NO, NO, NO, NO, YES, NO, 60);
+          [PEHttpResponseSimulator simulateResponseFromXml:contentsOfMockResponse(@"http-response.503.1")
+                                     pathsRelativeToBundle:[NSBundle bundleForClass:[self class]]
+                                            requestLatency:0
+                                           responseLatency:0];
+          NSDate *expectedRetryAfter = [[HCRelationExecutor dateFormatterWithPattern:@"EEE',' dd MMM yyyy HH':'mm':'ss z"]
+                                        dateFromString:@"Fri, 04 Nov 2014 23:59:59 GMT"];
+          [relExecutor doGetForTargetResource:[[HCResource alloc] initWithMediaType:mediaType uri:url(path)]
+                                   parameters:nil
+                              ifModifiedSince:nil
+                             targetSerializer:jsonSerializer
+                                 asynchronous:YES
+                              completionQueue:nil
+                                authorization:nil
+                                      success:newEmptyGetSuccessBlk()
+                                  redirection:newRedirectBlk(nil, NO, NO)
+                                  clientError:newClientErrorBlk(404)
+                       authenticationRequired:nil
+                                  serverError:newServerErrorBlk(-1)
+                             unavailableError:newServerUnavailableBlk(expectedRetryAfter, nil)
+                            connectionFailure:newConnFailureBlk(-1)
+                                      timeout:60
+                                  cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                 otherHeaders:nil];
+          expectedFutureFlags(NO, NO, NO, NO, NO, NO, YES, NO, 60);
           });
       });
 
@@ -874,24 +867,24 @@ describe(@"HCRelationExecutor", ^{
             NSString *path = @"/users";
             [PEHttpResponseSimulator simulateConnectionTimedOutForRequestUrl:url(path)
                                                         andRequestHttpMethod:@"GET"];
-            [relExecutor
-              doGetForTargetResource:[[HCResource alloc] initWithMediaType:mediaType uri:url(path)]
-                     ifModifiedSince:nil
-                    targetSerializer:jsonSerializer
-                        asynchronous:YES
-                     completionQueue:nil
-                       authorization:nil
-                             success:newEmptyGetSuccessBlk()
-                         redirection:newRedirectBlk(nil, NO, NO)
-                         clientError:newClientErrorBlk(404)
-              authenticationRequired:nil
-                         serverError:newServerErrorBlk(-1)
-                    unavailableError:newServerUnavailableBlk(nil, nil)
-                   connectionFailure:newConnFailureBlk(NSURLErrorTimedOut)
-                             timeout:60
-                         cachePolicy:NSURLRequestUseProtocolCachePolicy
-                        otherHeaders:nil];
-            expectedFutureFlags(NO, NO, NO, NO, NO, NO, NO, YES, 60);
+          [relExecutor doGetForTargetResource:[[HCResource alloc] initWithMediaType:mediaType uri:url(path)]
+                                   parameters:nil
+                              ifModifiedSince:nil
+                             targetSerializer:jsonSerializer
+                                 asynchronous:YES
+                              completionQueue:nil
+                                authorization:nil
+                                      success:newEmptyGetSuccessBlk()
+                                  redirection:newRedirectBlk(nil, NO, NO)
+                                  clientError:newClientErrorBlk(404)
+                       authenticationRequired:nil
+                                  serverError:newServerErrorBlk(-1)
+                             unavailableError:newServerUnavailableBlk(nil, nil)
+                            connectionFailure:newConnFailureBlk(NSURLErrorTimedOut)
+                                      timeout:60
+                                  cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                 otherHeaders:nil];
+          expectedFutureFlags(NO, NO, NO, NO, NO, NO, NO, YES, 60);
           });
 
         it(@"Works in the event of a time out not explicitly simulated", ^{
@@ -912,23 +905,23 @@ describe(@"HCRelationExecutor", ^{
                 pathsRelativeToBundle:[NSBundle bundleForClass:[self class]]
                        requestLatency:20
                       responseLatency:0];
-            [relExecutor
-              doGetForTargetResource:[[HCResource alloc] initWithMediaType:mediaType uri:url(path)]
-                     ifModifiedSince:nil
-                    targetSerializer:jsonSerializer
-                        asynchronous:YES
-                     completionQueue:nil
-                       authorization:nil
-                             success:newEmptyGetSuccessBlk()
-                         redirection:newRedirectBlk(nil, NO, NO)
-                         clientError:newClientErrorBlk(-1)
-              authenticationRequired:nil
-                         serverError:newServerErrorBlk(-1)
-                    unavailableError:newServerUnavailableBlk(nil, nil)
-                   connectionFailure:newConnFailureBlk(NSURLErrorTimedOut)
-                             timeout:5
-                         cachePolicy:NSURLRequestUseProtocolCachePolicy
-                        otherHeaders:nil];
+          [relExecutor doGetForTargetResource:[[HCResource alloc] initWithMediaType:mediaType uri:url(path)]
+                                   parameters:nil
+                              ifModifiedSince:nil
+                             targetSerializer:jsonSerializer
+                                 asynchronous:YES
+                              completionQueue:nil
+                                authorization:nil
+                                      success:newEmptyGetSuccessBlk()
+                                  redirection:newRedirectBlk(nil, NO, NO)
+                                  clientError:newClientErrorBlk(-1)
+                       authenticationRequired:nil
+                                  serverError:newServerErrorBlk(-1)
+                             unavailableError:newServerUnavailableBlk(nil, nil)
+                            connectionFailure:newConnFailureBlk(NSURLErrorTimedOut)
+                                      timeout:5
+                                  cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                 otherHeaders:nil];
             expectedFutureFlags(NO, NO, NO, NO, NO, NO, NO, YES, 60);
           });
       });

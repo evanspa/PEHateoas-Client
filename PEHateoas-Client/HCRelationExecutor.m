@@ -318,6 +318,7 @@ typedef void (^AFFailureBlk)(AFHTTPRequestOperation *, NSError *);
 }
 
 - (void)doGetInvokerForURLString:(NSString *)URLString
+                      parameters:(NSDictionary *)parameters
                 requestOpManager:(AFHTTPRequestOperationManager *)mgr
                     asynchronous:(BOOL)asynchronous
                  completionQueue:(dispatch_queue_t)completionQueue
@@ -350,10 +351,9 @@ typedef void (^AFFailureBlk)(AFHTTPRequestOperation *, NSError *);
   AFFailureBlk failureBlk = ^(AFHTTPRequestOperation *op, NSError *err) {
     connFailure([err code]);
   };
-  NSURLRequest *request = [self requestWithOpMgr:mgr httpMethod:@"GET" URLString:URLString parameters:nil];
+  NSURLRequest *request = [self requestWithOpMgr:mgr httpMethod:@"GET" URLString:URLString parameters:parameters];
   DDLogDebug(@"(doGetInvoker:) HTTP request: [%@]", request);
-  AFHTTPRequestOperation *operation =
-    [mgr HTTPRequestOperationWithRequest:request success:successBlk failure:failureBlk];
+  AFHTTPRequestOperation *operation = [mgr HTTPRequestOperationWithRequest:request success:successBlk failure:failureBlk];
   [operation setSecurityPolicy:_afsecurityPolicy];
   [operation setRedirectResponseBlock:[self newAFRedirectBlkFor301Capture:redirection]];
   if (completionQueue) { [operation setCompletionQueue:completionQueue]; }
@@ -367,6 +367,7 @@ typedef void (^AFFailureBlk)(AFHTTPRequestOperation *, NSError *);
 #pragma mark - Executors
 
 - (void)doGetForTargetResource:(HCResource *)targetResource
+                    parameters:(NSDictionary *)parameters
                ifModifiedSince:(NSDate *)modifiedSince
               targetSerializer:(id<HCResourceSerializer>)targetSerializer
                   asynchronous:(BOOL)asynchronous
@@ -389,6 +390,7 @@ typedef void (^AFFailureBlk)(AFHTTPRequestOperation *, NSError *);
                                                                    cachePolicy:cachePolicy
                                                                   otherHeaders:otherHeaders];
   [self doGetInvokerForURLString:[self urlForResource:targetResource forOpMgr:mgr]
+                      parameters:parameters
                 requestOpManager:mgr
                     asynchronous:asynchronous
                  completionQueue:completionQueue
@@ -402,6 +404,7 @@ typedef void (^AFFailureBlk)(AFHTTPRequestOperation *, NSError *);
 }
 
 - (void)doGetForURLString:(NSString *)URLString
+               parameters:(NSDictionary *)parameters
           ifModifiedSince:(NSDate *)modifiedSince
          targetSerializer:(id<HCResourceSerializer>)targetSerializer
              asynchronous:(BOOL)asynchronous
@@ -424,6 +427,7 @@ typedef void (^AFFailureBlk)(AFHTTPRequestOperation *, NSError *);
                                                                    cachePolicy:cachePolicy
                                                                   otherHeaders:otherHeaders];
   [self doGetInvokerForURLString:URLString
+                      parameters:parameters
                 requestOpManager:mgr
                     asynchronous:asynchronous
                  completionQueue:completionQueue

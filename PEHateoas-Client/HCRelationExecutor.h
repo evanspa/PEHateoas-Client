@@ -137,6 +137,7 @@ FOUNDATION_EXPORT NSString * const HTTP_DATE_FORMAT;
  the connectionFailure block will be executed.
  */
 - (void)doGetForTargetResource:(HCResource *)targetResource
+                    parameters:(NSDictionary *)parameters
                ifModifiedSince:(NSDate *)modifiedSince
               targetSerializer:(id<HCResourceSerializer>)targetSerializer
                   asynchronous:(BOOL)asynchronous
@@ -154,6 +155,7 @@ FOUNDATION_EXPORT NSString * const HTTP_DATE_FORMAT;
                   otherHeaders:(NSDictionary *)otherHeaders;
 
 - (void)doGetForURLString:(NSString *)URLString
+               parameters:(NSDictionary *)parameters
           ifModifiedSince:(NSDate *)modifiedSince
          targetSerializer:(id<HCResourceSerializer>)targetSerializer
              asynchronous:(BOOL)asynchronous
