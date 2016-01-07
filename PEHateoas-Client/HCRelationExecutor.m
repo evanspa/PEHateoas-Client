@@ -226,8 +226,12 @@ typedef void (^AFFailureBlk)(AFHTTPRequestOperation *, NSError *);
     NSDictionary *headers = [httpResp allHeaderFields];
     NSInteger respCode = [httpResp statusCode];
     NSString *retryAfterHdrVal = [headers objectForKey:@"retry-after"];
-    if (respCode == 503 && retryAfterHdrVal) {
-      unavailableErr([self dateFromRetryAfterHeaderVal:retryAfterHdrVal], httpResp);
+    if (respCode == 503) {
+      NSDate *retryAfter = nil;
+      if (retryAfterHdrVal) {
+        retryAfter = [self dateFromRetryAfterHeaderVal:retryAfterHdrVal];
+      }
+      unavailableErr(retryAfter, httpResp);
     } else if (respCode < 300 && respCode >= 200) {
       successProcessor();
     } else if (respCode < 400 && respCode >= 300) {
