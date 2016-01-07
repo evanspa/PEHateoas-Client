@@ -53,10 +53,16 @@ response: [%@].  Response body (assuming UTF-8 encoding): [%@].", response,
   if (contentTypeStr) {
     mediaType = [HCMediaType MediaTypeFromString:contentTypeStr];
   }
-  return [_hcserializer deserializeResourceFromTextData:data
-                                      resourceMediaType:mediaType
-                                            resourceURL:[response URL]
-                                           httpResponse:(NSHTTPURLResponse *)response];
+  NSHTTPURLResponse *httpResp = (NSHTTPURLResponse *)response;
+  // don't try to parse 503 response because it'll be some default text/html
+  // content from nginx or something meant for a human
+  if (!(httpResp.statusCode == 503)) {
+    return [_hcserializer deserializeResourceFromTextData:data
+                                        resourceMediaType:mediaType
+                                              resourceURL:[response URL]
+                                             httpResponse:(NSHTTPURLResponse *)response];
+  }
+  return nil;
 }
 
 @end
