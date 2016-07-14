@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/evanspa/#{s.name}"
   s.source       = { :git => "https://github.com/evanspa/#{s.name}.git", :tag => "#{s.name}-v#{s.version}" }
   s.platform     = :ios, '8.4'
-  s.source_files = '**/*.{h,m}'
+  s.source_files = 'PEHateoas-Client/*.{h,m}'
   s.private_header_files= "**/HCLogging.h"
   s.exclude_files = "**/*{Test}*"
   s.requires_arc = true
