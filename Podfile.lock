@@ -47,7 +47,9 @@ PODS:
   - OHHTTPStubs (3.1.12):
     - OHHTTPStubs/Core (= 3.1.12)
   - OHHTTPStubs/Core (3.1.12)
-  - PEObjc-Commons (1.0.111):
+  - PEObjc-Commons (1.0.112):
+    - PEObjc-Commons/Default (= 1.0.112)
+  - PEObjc-Commons/Default (1.0.112):
     - BlocksKit (~> 2.2.5)
   - PEWire-Control (1.0.5):
     - KissXML (~> 5.0)
@@ -65,7 +67,7 @@ DEPENDENCIES:
   - KissXML (~> 5.0)
   - Kiwi (~> 2.3.1)
   - OHHTTPStubs (~> 3.1.10)
-  - PEObjc-Commons (~> 1.0.111)
+  - PEObjc-Commons (~> 1.0.112)
   - PEWire-Control (~> 1.0.4)
 
 SPEC CHECKSUMS:
@@ -75,10 +77,10 @@ SPEC CHECKSUMS:
   KissXML: 246c842586bb77110e04fb88e19376d96245c856
   Kiwi: f038a6c61f7a9e4d7766bff5717aa3b3fdb75f55
   OHHTTPStubs: 8cf0cfe6f34f13fc88fdf5b2a1b2c2536e8c0261
-  PEObjc-Commons: 18580a100ec12f5ca494755a6a92284d711fdba3
+  PEObjc-Commons: 1f17e6c038034f6ef564237bc5ca4b284e424a6b
   PEWire-Control: c2d18d4261d025182513466da9c6ed80e596f526
   PEXML-Utils: d36d0ab7337b92c120ec49b84f99e7b923bf8a24
 
-PODFILE CHECKSUM: e34a66292bfd1b2042eff8da5cf5c7593fe85d8e
+PODFILE CHECKSUM: c25ceb8e818c379b6ca9aa5623069f76f0661cb4
 
 COCOAPODS: 1.1.0.beta.1

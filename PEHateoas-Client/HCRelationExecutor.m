@@ -22,7 +22,7 @@
 // THE SOFTWARE.
 
 #import <AFNetworking/AFHTTPRequestOperationManager.h>
-#import "PEUtils.h" // from PEHateaos-Client
+#import <PEObjc-Commons/PEUtils.h>
 #import "HCRelationExecutor.h"
 #import "HCAFURLRequestSerializer.h"
 #import "HCAFURLResponseSerializer.h"
