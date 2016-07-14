@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.author       = { "Paul Evans" => "evansp2@gmail.com" }
   s.homepage     = "https://github.com/evanspa/#{s.name}"
   s.source       = { :git => "https://github.com/evanspa/#{s.name}.git", :tag => "#{s.name}-v#{s.version}" }
-  s.platform     = :ios, '8.4'
+  s.platform     = :ios, '9.0'
   s.requires_arc = true
   s.default_subspecs = 'Default'
 
