@@ -9,7 +9,8 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '8.4'
   s.source_files = '**/*.{h,m}'
   s.public_header_files = '**/*.h'
-  s.exclude_files = "**/*{Test,HCLogging}*"
+  s.private_header_files= "**/HCLogging.h"
+  s.exclude_files = "**/*{Test}*"
   s.requires_arc = true
   s.dependency 'AFNetworking', '~> 2.6.3'
   s.dependency 'PEObjc-Commons', '~> 1.0.111'
