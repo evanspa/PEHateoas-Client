@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07E47B2A9D40264A1C4B5ED6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC60884F663352A57D163AB /* libPods.a */; };
 		188354D21A7C99E000C87586 /* HCRelationExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 188354D11A7C99E000C87586 /* HCRelationExecutor.m */; };
 		188354D51A7C99EA00C87586 /* HCMediaType.m in Sources */ = {isa = PBXBuildFile; fileRef = 188354D41A7C99EA00C87586 /* HCMediaType.m */; };
 		188354D81A7C99F000C87586 /* HCRelation.m in Sources */ = {isa = PBXBuildFile; fileRef = 188354D71A7C99F000C87586 /* HCRelation.m */; };
@@ -26,6 +25,8 @@
 		188355001A7C9AA600C87586 /* NSHTTPURLResponse+HCAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 188354FF1A7C9AA600C87586 /* NSHTTPURLResponse+HCAdditions.m */; };
 		188355031A7C9AAC00C87586 /* NSURL+HCAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 188355021A7C9AAC00C87586 /* NSURL+HCAdditions.m */; };
 		188355091A7CA16900C87586 /* HCLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = 188355081A7CA16900C87586 /* HCLogging.m */; };
+		2FEF4CF11D37E04800066B51 /* PEHateoas-ClientTests.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 2FEF4CF01D37E04800066B51 /* PEHateoas-ClientTests.debug.xcconfig */; };
+		8D49849FA4825C21FB4AE29E /* libPods-PEHateoas-Client.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2689510021568DF3C09710CC /* libPods-PEHateoas-Client.a */; };
 		CA47B7161B65D87B00DB055B /* libPEHateoas-Client.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1883549E1A7C973600C87586 /* libPEHateoas-Client.a */; };
 		CA47B71C1B65D8D200DB055B /* HCTestUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1883554B1A7CA7E700C87586 /* HCTestUtils.m */; };
 		CA47B71D1B65D8D200DB055B /* HCUtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 188355491A7CA7DF00C87586 /* HCUtilsTests.m */; };
@@ -140,16 +141,14 @@
 		1883554D1A7CA7FD00C87586 /* HCTestUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCTestUtils.h; sourceTree = "<group>"; };
 		1883554E1A7CA81A00C87586 /* HCFakeResourceSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCFakeResourceSerializer.m; sourceTree = "<group>"; };
 		188355501A7CA83000C87586 /* HCFakeResourceSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCFakeResourceSerializer.h; sourceTree = "<group>"; };
-		36C9A4606B945FC270C1EF32 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		6CC60884F663352A57D163AB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		77FB6D190AD0FE087AA667C3 /* Pods-PEHateoas-ClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PEHateoas-ClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PEHateoas-ClientTests/Pods-PEHateoas-ClientTests.release.xcconfig"; sourceTree = "<group>"; };
-		9B26CE8402536107D866ED3F /* libPods-PEHateoas-ClientTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PEHateoas-ClientTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BB53FF855470C70EF6769DEF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		22BF9CEF2D230A0B6F1F9D4C /* Pods-PEHateoas-Client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PEHateoas-Client.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PEHateoas-Client/Pods-PEHateoas-Client.debug.xcconfig"; sourceTree = "<group>"; };
+		2689510021568DF3C09710CC /* libPods-PEHateoas-Client.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PEHateoas-Client.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FEF4CF01D37E04800066B51 /* PEHateoas-ClientTests.debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "PEHateoas-ClientTests.debug.xcconfig"; sourceTree = "<group>"; };
+		88485DA2DD918F0C11E1EF93 /* Pods-PEHateoas-Client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PEHateoas-Client.release.xcconfig"; path = "Pods/Target Support Files/Pods-PEHateoas-Client/Pods-PEHateoas-Client.release.xcconfig"; sourceTree = "<group>"; };
 		CA37CF521C244D84002F09A6 /* HCDefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HCDefs.h; sourceTree = "<group>"; };
 		CA4054F01B65D6F900F9D221 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		CA47B7101B65D87B00DB055B /* PEHateoas-ClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PEHateoas-ClientTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA47B7321B65D9CC00DB055B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E61C4939A0C0F3DB13846738 /* Pods-PEHateoas-ClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PEHateoas-ClientTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PEHateoas-ClientTests/Pods-PEHateoas-ClientTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,7 +156,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07E47B2A9D40264A1C4B5ED6 /* libPods.a in Frameworks */,
+				8D49849FA4825C21FB4AE29E /* libPods-PEHateoas-Client.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,7 +178,7 @@
 				188354AD1A7C973600C87586 /* PEHateoas-ClientTests */,
 				1883549F1A7C973600C87586 /* Products */,
 				303AFF805557EF642C7EFC7B /* Frameworks */,
-				42652C5BEB54A1877C7552AA /* Pods */,
+				83FBFD4734E559DB2B88B86F /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -222,6 +221,7 @@
 		188354AE1A7C973600C87586 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2FEF4CF01D37E04800066B51 /* PEHateoas-ClientTests.debug.xcconfig */,
 				CA47B7321B65D9CC00DB055B /* Info.plist */,
 				1883552A1A7CA71700C87586 /* api-resource.json */,
 				188355281A7CA6F900C87586 /* http-mock-responses */,
@@ -645,19 +645,16 @@
 			isa = PBXGroup;
 			children = (
 				CA4054F01B65D6F900F9D221 /* libPods.a */,
-				6CC60884F663352A57D163AB /* libPods.a */,
-				9B26CE8402536107D866ED3F /* libPods-PEHateoas-ClientTests.a */,
+				2689510021568DF3C09710CC /* libPods-PEHateoas-Client.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		42652C5BEB54A1877C7552AA /* Pods */ = {
+		83FBFD4734E559DB2B88B86F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				BB53FF855470C70EF6769DEF /* Pods.debug.xcconfig */,
-				36C9A4606B945FC270C1EF32 /* Pods.release.xcconfig */,
-				E61C4939A0C0F3DB13846738 /* Pods-PEHateoas-ClientTests.debug.xcconfig */,
-				77FB6D190AD0FE087AA667C3 /* Pods-PEHateoas-ClientTests.release.xcconfig */,
+				22BF9CEF2D230A0B6F1F9D4C /* Pods-PEHateoas-Client.debug.xcconfig */,
+				88485DA2DD918F0C11E1EF93 /* Pods-PEHateoas-Client.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -677,11 +674,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 188354B21A7C973600C87586 /* Build configuration list for PBXNativeTarget "PEHateoas-Client" */;
 			buildPhases = (
-				A9033EA085BE8B771B407E4E /* Check Pods Manifest.lock */,
+				B21F3B32E36D2AA605AC92DA /* [CP] Check Pods Manifest.lock */,
 				1883549A1A7C973600C87586 /* Sources */,
 				1883549B1A7C973600C87586 /* Frameworks */,
 				1883549C1A7C973600C87586 /* CopyFiles */,
-				71B54C589B3C108A5A12BB05 /* Copy Pods Resources */,
+				AC3B87621FC7C1D363F73DC0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -750,6 +747,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FEF4CF11D37E04800066B51 /* PEHateoas-ClientTests.debug.xcconfig in Resources */,
 				CA47B7301B65D8E300DB055B /* api-resource.json in Resources */,
 				CA47B7311B65D8EC00DB055B /* http-mock-responses in Resources */,
 			);
@@ -758,29 +756,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		71B54C589B3C108A5A12BB05 /* Copy Pods Resources */ = {
+		AC3B87621FC7C1D363F73DC0 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PEHateoas-Client/Pods-PEHateoas-Client-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A9033EA085BE8B771B407E4E /* Check Pods Manifest.lock */ = {
+		B21F3B32E36D2AA605AC92DA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -856,7 +854,6 @@
 /* Begin XCBuildConfiguration section */
 		188354B01A7C973600C87586 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BB53FF855470C70EF6769DEF /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -901,7 +898,6 @@
 		};
 		188354B11A7C973600C87586 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 36C9A4606B945FC270C1EF32 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -939,7 +935,7 @@
 		};
 		188354B31A7C973600C87586 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BB53FF855470C70EF6769DEF /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 22BF9CEF2D230A0B6F1F9D4C /* Pods-PEHateoas-Client.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -950,7 +946,7 @@
 		};
 		188354B41A7C973600C87586 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 36C9A4606B945FC270C1EF32 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 88485DA2DD918F0C11E1EF93 /* Pods-PEHateoas-Client.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -961,7 +957,7 @@
 		};
 		CA47B7191B65D87B00DB055B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BB53FF855470C70EF6769DEF /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 2FEF4CF01D37E04800066B51 /* PEHateoas-ClientTests.debug.xcconfig */;
 			buildSettings = {
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = "";
@@ -980,7 +976,6 @@
 		};
 		CA47B71A1B65D87B00DB055B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 36C9A4606B945FC270C1EF32 /* Pods.release.xcconfig */;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";

@@ -1,3 +1,34 @@
+!!! UPDATE - 07/14/2016 !!!
+--------------------------------------------------------------------------------
+So, Cocoapods 1.0 is released, and after going to this project, and doing a
+build, you got strange <Kiwi/Kiwi.h> not found when compiling tests.  So, here's
+what you did, and can do "going forward":
+
+Copy the debug xcconfig file that Cocoapods generates for the PEHateaos-Client
+target, and copy it into the PEHateoas-ClientTests target's folder (and rename
+it) like so:
+
+cp Pods/Target\Support\Files/Pods-PEHateoas-Client/Pods-PEHateoas-Client.debug.xcconfig PEHateoas-ClientTests/PEHateoas-ClientTests.debug.xcconfig
+
+Now, the next part is already done, so you shouldn't have to do again, but, just
+in case, in the Project info page, make sure that this configuration file is
+selected for the PEHateoas-ClientTest target's debug configuration.
+
+So basically, any time you add new pods or whatnot to this project, and you run
+"pod update" or "pod install", you should re-copy the newly generated xconfig
+file over to the test target, so it can enjoy those nice settings (like being
+able to find Kiwi's header files and such).
+
+FYI, you DID try the podfile setup shown here (i.e., the one with a "test" target):
+
+https://guides.cocoapods.org/using/the-podfile.html
+
+But this didn't work for me.  I got funky linker errors and I'm done with that
+shit.  The root cause of those linker errors are probably related to what's
+going on with the explanation below regarding this project's previous podfile
+setup (i.e. when using Cocoapods 0.35.0).
+
+--------------------------------------------------------------------------------
 FYI, at the time of this writing, I'm using the latest release build of
 CocoaPods (0.35.0).
 

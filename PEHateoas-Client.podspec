@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "PEHateoas-Client"
-  s.version      = "1.0.17"
+  s.version      = "1.0.18"
   s.license      = "MIT"
   s.summary      = "An iOS library simplifying the consumption of hypermedia REST APIs."
   s.author       = { "Paul Evans" => "evansp2@gmail.com" }
@@ -13,6 +13,6 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.pod_target_xcconfig = {'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES'}
   s.dependency 'AFNetworking', '~> 2.6.3'
-  s.dependency 'PEObjc-Commons', '~> 1.0.104'
+  s.dependency 'PEObjc-Commons', '~> 1.0.111'
   s.dependency 'CocoaLumberjack', '~> 1.9'
 end

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 readonly PROJECT_NAME="PEHateoas-Client"
-readonly SDK_VERSION="9.2"
+readonly SDK_VERSION="9.3"
 readonly DEVICE_NAME="iPhone 5s"
 readonly ARCH="i386"
 export LC_CTYPE=en_US.UTF-8
