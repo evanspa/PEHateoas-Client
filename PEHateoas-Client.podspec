@@ -7,13 +7,13 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/evanspa/#{s.name}"
   s.source       = { :git => "https://github.com/evanspa/#{s.name}.git", :tag => "#{s.name}-v#{s.version}" }
   s.platform     = :ios, '8.4'
-  s.private_header_files= "PEHateoas-Client/HCLogging.h"
   s.requires_arc = true
   s.default_subspecs = 'Default'
 
   s.subspec 'Default' do |ss|
     ss.source_files = 'PEHateoas-Client/*.{h,m}'
     ss.exclude_files = "**/*{Test}*"
+    ss.private_header_files= "PEHateoas-Client/HCLogging.h"
     ss.dependency 'AFNetworking', '~> 2.6.3'
     ss.dependency 'PEObjc-Commons', '~> 1.0.112'
     ss.dependency 'CocoaLumberjack', '~> 1.9'
