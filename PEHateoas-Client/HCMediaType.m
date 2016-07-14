@@ -21,8 +21,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+#import <PEObjc-Commons/PEUtils.h>
 #import "HCMediaType.h"
-#import "PEUtils.h"
 
 @implementation HCMediaType
 

@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
     ss.exclude_files = "**/*{Test}*"
     ss.private_header_files= "PEHateoas-Client/HCLogging.h"
     ss.dependency 'AFNetworking', '~> 2.6.3'
-    ss.dependency 'PEObjc-Commons', '~> 1.0.112'
+    ss.dependency 'PEObjc-Commons', '~> 1.0.113'
     ss.dependency 'CocoaLumberjack', '~> 1.9'
   end
 end

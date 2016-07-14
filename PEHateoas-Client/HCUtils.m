@@ -21,10 +21,10 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+#import <PEObjc-Commons/PEUtils.h>
 #import "HCUtils.h"
 #import "HCHalJsonSerializer.h"
 #import "HCResource.h"
-#import "PEUtils.h"
 #import "HCCharset.h"
 #import "HCDeserializedPair.h"
 #import "HCMediaType.h"
